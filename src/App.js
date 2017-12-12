@@ -12,7 +12,7 @@ const mapState = state => ({
 
 const mapDispatch = dispatch => ({
   appLoad: () =>
-    dispatch(common.appLoaded())
+    dispatch(common.appLoaded()),
 })
 
 class App extends Component {
@@ -32,7 +32,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <HelloWorld working={appLoaded}/>
+        <HelloWorld working={appLoaded} />
       </div>
     );
   }
