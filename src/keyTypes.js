@@ -2,4 +2,5 @@
 
 export default {
   APP_LOADED: 'APP_LOADED',
+  ASYNC_START: 'ASYNC_START',
 }
