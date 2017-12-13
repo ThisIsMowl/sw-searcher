@@ -1,21 +1,24 @@
 import keyTypes from '../keyTypes'
 
 const initialState = {
-  appLoaded: false,
   data: [],
+  loading: false,
+  errors: [],
 }
 
 const commonReducer = (state = initialState, action) => {
   switch (action.type) {
-    case keyTypes.APP_LOADED:
+    case keyTypes.ASYNC_START:
       return {
         ...state,
-        appLoaded: true,
+        loading: true,
       }
     case keyTypes.LOAD_TEST:
       return {
         ...state,
         data: action.error ? [] : action.payload,
+        loading: false,
+        errors: action.error ? [...state.errors, action.payload] : state.errors,
       }
     default:
       return state

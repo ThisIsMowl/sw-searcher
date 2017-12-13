@@ -12,20 +12,17 @@ const mapState = state => ({
 })
 
 const mapDispatch = dispatch => ({
-  appLoad: () =>
-    dispatch(common.appLoaded()),
   loadTest: payload =>
     dispatch(common.loadTest(payload)),
 })
 
 class App extends Component {
   componentWillMount() {
-    this.props.appLoad()
-    this.props.loadTest(agent.getFilm(1))
+    this.props.loadTest(agent.getCharacter(1))
   }
 
   render() {
-    const appLoaded = this.props.appLoaded
+    const loading = this.props.loading
 
     return (
       <div className="App">
@@ -36,7 +33,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <HelloWorld working={appLoaded} />
+        <HelloWorld loading={loading}/>
       </div>
     );
   }

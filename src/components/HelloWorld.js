@@ -1,11 +1,14 @@
 import React from 'react'
 
 const HelloWorld = (props) => {
-  if (props.working) {
+  if (!props.loading) {
     return (
       <h1>Hello World</h1>
     )
-  } else return null
+  }
+  return (
+    <h1>Loading...</h1>
+  )
 }
 
 export default HelloWorld
