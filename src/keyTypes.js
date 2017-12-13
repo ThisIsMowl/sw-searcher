@@ -3,4 +3,5 @@
 export default {
   APP_LOADED: 'APP_LOADED',
   ASYNC_START: 'ASYNC_START',
+  LOAD_TEST: 'LOAD_TEST',
 }

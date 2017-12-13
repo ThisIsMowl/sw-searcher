@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import common from './actions/commonActions'
+import agent from './agent'
 import HelloWorld from './components/HelloWorld'
 import logo from './logo.svg'
 import './App.css'
@@ -13,11 +14,14 @@ const mapState = state => ({
 const mapDispatch = dispatch => ({
   appLoad: () =>
     dispatch(common.appLoaded()),
+  loadTest: payload =>
+    dispatch(common.loadTest(payload)),
 })
 
 class App extends Component {
   componentWillMount() {
     this.props.appLoad()
+    this.props.loadTest(agent.getFilm(1))
   }
 
   render() {

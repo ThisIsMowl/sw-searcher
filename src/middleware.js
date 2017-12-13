@@ -13,14 +13,16 @@ const PromiseMiddleware = store => next => (action) => {
       subtype: action.type,
     })
 
-    action.payload.then((res) => {
-      action.payload = res
-      store.dispatch(action)
-    }, (err) => {
-      action.payload = err.response.body
-      action.error = true
-      store.dispatch(action)
-    })
+    action.payload
+      .then((res) => {
+        action.payload = res
+        store.dispatch(action)
+      })
+      .catch((err) => {
+        action.error = true
+        action.payload = err
+        store.dispatch(action)
+      })
 
     return
   }
