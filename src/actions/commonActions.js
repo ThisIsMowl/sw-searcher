@@ -5,6 +5,13 @@ const loadTest = payload => ({
   payload,
 })
 
+const searchValueChange = (key, payload) => ({
+  type: keyTypes.SEARCH_VALUE_CHANGE,
+  key,
+  payload,
+})
+
 export default {
   loadTest,
+  searchValueChange,
 }

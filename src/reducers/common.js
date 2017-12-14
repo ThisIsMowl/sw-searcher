@@ -4,6 +4,7 @@ const initialState = {
   data: [],
   loading: false,
   errors: [],
+  searchBox: '',
 }
 
 const commonReducer = (state = initialState, action) => {
@@ -19,6 +20,11 @@ const commonReducer = (state = initialState, action) => {
         data: action.error ? [] : action.payload,
         loading: false,
         errors: action.error ? [...state.errors, action.payload] : state.errors,
+      }
+    case keyTypes.SEARCH_VALUE_CHANGE:
+      return {
+        ...state,
+        [action.key]: action.payload,
       }
     default:
       return state
