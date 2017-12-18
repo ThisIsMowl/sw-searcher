@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import common from '../actions/commonActions'
+import agent from '../agent'
 
 const mapState = state => ({
   searchBox: state.common.searchBox,
@@ -11,6 +12,8 @@ const mapState = state => ({
 const mapDispatch = dispatch => ({
   changeSearchValue: (key, payload) =>
     dispatch(common.searchValueChange(key, payload)),
+  loadTest: () =>
+    dispatch(common.loadTest(agent.getFilm(1))),
 })
 
 class SearchPanel extends Component {
@@ -21,6 +24,10 @@ class SearchPanel extends Component {
       this.props.changeSearchValue(e.target.name, e.target.value)
     }
 
+  }
+
+  componentWillMount() {
+    this.props.loadTest()
   }
 
   render() {
