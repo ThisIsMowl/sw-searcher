@@ -28,12 +28,14 @@ class SearchPanel extends Component {
 
     return (
       <div className="panel--search">
-        <h1>My App</h1>
-        <h2>Hello, and welcome to the app.</h2>
+        <div className="content">
+          <h1>Star Wars Searcher</h1>
+          <h2>Hello, and welcome to the app.</h2>
 
-        <form>
-            <input type="text" placeholder="Query" name="searchBox" value={search} onChange={this.changeSearchValue}></input>
-        </form>
+          <form>
+              <input type="text" placeholder="Query" name="searchBox" value={search} onChange={this.changeSearchValue}></input>
+          </form>
+        </div>
       </div>
     )
   }
