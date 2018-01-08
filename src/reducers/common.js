@@ -4,7 +4,7 @@ const initialState = {
   data: [],
   loading: false,
   errors: [],
-  searchBox: '',
+  searchType: 'film',
 }
 
 const commonReducer = (state = initialState, action) => {

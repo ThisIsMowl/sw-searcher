@@ -7,13 +7,18 @@ import agent from '../agent'
 
 const mapState = state => ({
   searchBox: state.common.searchBox,
+  searchType: state.common.searchType,
 })
 
 const mapDispatch = dispatch => ({
   changeSearchValue: (key, payload) =>
     dispatch(common.searchValueChange(key, payload)),
-  loadTest: () =>
+  loadTestFilm: () =>
     dispatch(common.loadTest(agent.getFilm(1))),
+  loadTestChar: () =>
+    dispatch(common.loadTest(agent.getCharacter(1))),
+  loadTestPlan: () =>
+    dispatch(common.loadTest(agent.getCharacter(1))),
 })
 
 class SearchPanel extends Component {
@@ -23,14 +28,20 @@ class SearchPanel extends Component {
     this.changeSearchValue = (e) => {
       this.props.changeSearchValue(e.target.name, e.target.value)
     }
+
+    this.changeSearchType = (e) => {
+      this.props.changeSearchValue('searchType', e.target.value)
+    }
   }
 
   componentWillMount() {
-    this.props.loadTest()
+    if (this.props.searchType === 'film') {
+      this.props.loadTestFilm()
+    }
   }
 
   render() {
-    const search = this.props.searchBox
+    const searchType = this.props.searchType
 
     return (
       <div className="panel--search">
@@ -41,21 +52,21 @@ class SearchPanel extends Component {
           <form>
             <div className="radio">
               <label>
-                <input type="radio" value="option1" checked /> Option 1
+                <input type="radio" value="film" checked={searchType === 'film'} onChange={this.changeSearchType} /> Film
               </label>
             </div>
             <div className="radio">
               <label>
-                <input type="radio" value="option2" /> Option 2
+                <input type="radio" value="planet" checked={searchType === 'planet'} onChange={this.changeSearchType} /> Planet
               </label>
             </div>
             <div className="radio">
               <label>
-                <input type="radio" value="option3" /> Option 3
+                <input type="radio" value="character" checked={searchType === 'character'} onChange={this.changeSearchType} /> Character
               </label>
             </div>
 
-            <input type="text" placeholder="Query" name="searchBox" value={search} onChange={this.changeSearchValue} />
+            <button type="button">Search </button>
           </form>
         </div>
       </div>
