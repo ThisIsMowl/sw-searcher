@@ -23,7 +23,6 @@ class SearchPanel extends Component {
     this.changeSearchValue = (e) => {
       this.props.changeSearchValue(e.target.name, e.target.value)
     }
-
   }
 
   componentWillMount() {
@@ -40,7 +39,23 @@ class SearchPanel extends Component {
           <h2>Hello, and welcome to the app.</h2>
 
           <form>
-              <input type="text" placeholder="Query" name="searchBox" value={search} onChange={this.changeSearchValue}></input>
+            <div className="radio">
+              <label>
+                <input type="radio" value="option1" checked /> Option 1
+              </label>
+            </div>
+            <div className="radio">
+              <label>
+                <input type="radio" value="option2" /> Option 2
+              </label>
+            </div>
+            <div className="radio">
+              <label>
+                <input type="radio" value="option3" /> Option 3
+              </label>
+            </div>
+
+            <input type="text" placeholder="Query" name="searchBox" value={search} onChange={this.changeSearchValue} />
           </form>
         </div>
       </div>

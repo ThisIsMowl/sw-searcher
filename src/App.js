@@ -8,7 +8,14 @@ const App = () => (
   <div className="App">
     <div className="container">
       <SearchPanel />
-      <ResultsPanel />
+    
+      <div className="panel--results">
+        <div className="content">
+
+          <ResultsPanel />
+
+        </div>
+      </div>
     </div>
   </div>
 )

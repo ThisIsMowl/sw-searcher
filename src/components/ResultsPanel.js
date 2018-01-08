@@ -12,30 +12,35 @@ const mapState = state => ({
 
 class ResultsPanel extends React.Component {
   render() {
-    const data = this.props.data
-    const episodeId = toRoman(data.episode_id)
-    const title = data.title ? data.title.toUpperCase() : '' 
-    const openingCrawl = data.opening_crawl
+    if (this.props.data.title) {
+      let { episode_id: episodeId, title: filmTitle } = this.props.data
+      const { opening_crawl: openingCrawl } = this.props.data
 
-    return (
-      <div className="panel--results">
-        <div className="content">
+      episodeId = episodeId ? toRoman(episodeId) : ''
+      filmTitle = filmTitle ? filmTitle.toUpperCase() : ''
 
+      return (
+        <div>
           <div className="titles">
             <h1>STAR WARS</h1>
             <h2>EPISODE {episodeId}</h2>
-            <h2>{title}</h2>
+            <h2>{filmTitle}</h2>
           </div>
 
           <p className="opening-crawl">
             {openingCrawl}
           </p>
-
-
         </div>
-      </div>
-    )
+
+      )
+    } else {
+      return (
+        <div className="titles">
+          <h1>Loading...</h1>
+        </div>
+      )
+    }
   }
-} 
+}
 
 export default connect(mapState, () => ({}))(ResultsPanel)
