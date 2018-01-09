@@ -11,7 +11,12 @@ const searchValueChange = (key, payload) => ({
   payload,
 })
 
+const unloadPage = () => ({
+  type: keyTypes.UNLOAD_PAGE
+})
+
 export default {
   loadTest,
   searchValueChange,
+  unloadPage,
 }

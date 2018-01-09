@@ -16,11 +16,17 @@ const mapState = state => ({
 const mapDispatch = dispatch => ({
   loadTestFilm: () =>
     dispatch(common.loadTest(agent.getFilm(2))),
+  unloadPage: () =>
+    dispatch(common.unloadPage()),
 })
 
 class FilmPanel extends React.Component {
   componentWillMount() {
     this.props.loadTestFilm()
+  }
+
+  componentWillUnmount() {
+    this.props.unloadPage()
   }
 
   render() {

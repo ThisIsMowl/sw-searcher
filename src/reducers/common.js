@@ -26,6 +26,11 @@ const commonReducer = (state = initialState, action) => {
         ...state,
         [action.key]: action.payload,
       }
+    case keyTypes.UNLOAD_PAGE:
+      return {
+        ...state,
+        data: [],
+      }
     default:
       return state
   }

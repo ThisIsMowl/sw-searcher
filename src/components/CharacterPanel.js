@@ -16,11 +16,17 @@ const mapState = state => ({
 const mapDispatch = dispatch => ({
   loadTestChar: () =>
     dispatch(common.loadTest(agent.getCharacter(1))),
+  unloadPage: () =>
+    dispatch(common.unloadPage()),
 })
 
 class CharacterPanel extends React.Component {
   componentWillMount() {
     this.props.loadTestChar()
+  }
+
+  componentWillUnmount() {
+    this.props.unloadPage()
   }
 
   render() {

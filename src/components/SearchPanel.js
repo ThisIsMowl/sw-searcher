@@ -13,8 +13,6 @@ const mapState = state => ({
 const mapDispatch = dispatch => ({
   changeSearchValue: (key, payload) =>
     dispatch(common.searchValueChange(key, payload)),
-  loadTestChar: () =>
-    dispatch(common.loadTest(agent.getCharacter(1))),
   loadTestPlan: () =>
     dispatch(common.loadTest(agent.getCharacter(1))),
 })
