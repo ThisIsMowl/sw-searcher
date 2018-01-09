@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter, Route, Switch } from 'react-router-dom'
 
-import ResultsPanel from './components/ResultsPanel'
+import FilmPanel from './components/FilmPanel'
 import SearchPanel from './components/SearchPanel'
 import './App.css'
 
@@ -13,7 +13,7 @@ const App = () => (
         <div className="content">
 
           <Switch>
-            <Route exact path="/" component={ResultsPanel} />
+            <Route exact path="/" component={FilmPanel} />
           </Switch>
 
         </div>

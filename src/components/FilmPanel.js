@@ -11,7 +11,7 @@ const mapState = state => ({
   loading: state.common.loading,
 })
 
-class ResultsPanel extends React.Component {
+class FilmPanel extends React.Component {
   render() {
     if (this.props.data.title) {
       let { episode_id: episodeId, title: filmTitle } = this.props.data
@@ -44,4 +44,4 @@ class ResultsPanel extends React.Component {
   }
 }
 
-export default withRouter(connect(mapState, () => ({}))(ResultsPanel))
+export default withRouter(connect(mapState, () => ({}))(FilmPanel))
