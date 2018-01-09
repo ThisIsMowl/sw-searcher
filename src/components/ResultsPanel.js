@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
 import toRoman from '../helpers/toRoman'
 
@@ -43,4 +44,4 @@ class ResultsPanel extends React.Component {
   }
 }
 
-export default connect(mapState, () => ({}))(ResultsPanel)
+export default withRouter(connect(mapState, () => ({}))(ResultsPanel))

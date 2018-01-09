@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter, Route, Switch } from 'react-router-dom'
 
 import ResultsPanel from './components/ResultsPanel'
 import SearchPanel from './components/SearchPanel'
@@ -8,11 +9,12 @@ const App = () => (
   <div className="App">
     <div className="container">
       <SearchPanel />
-    
       <div className="panel--results">
         <div className="content">
 
-          <ResultsPanel />
+          <Switch>
+            <Route exact path="/" component={ResultsPanel} />
+          </Switch>
 
         </div>
       </div>
@@ -20,4 +22,4 @@ const App = () => (
   </div>
 )
 
-export default App
+export default withRouter(App)
