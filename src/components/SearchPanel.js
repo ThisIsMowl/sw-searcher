@@ -13,8 +13,6 @@ const mapState = state => ({
 const mapDispatch = dispatch => ({
   changeSearchValue: (key, payload) =>
     dispatch(common.searchValueChange(key, payload)),
-  loadTestFilm: () =>
-    dispatch(common.loadTest(agent.getFilm(1))),
   loadTestChar: () =>
     dispatch(common.loadTest(agent.getCharacter(1))),
   loadTestPlan: () =>
@@ -31,12 +29,6 @@ class SearchPanel extends Component {
 
     this.changeSearchType = (e) => {
       this.props.changeSearchValue('searchType', e.target.value)
-    }
-  }
-
-  componentWillMount() {
-    if (this.props.searchType === 'film') {
-      this.props.loadTestFilm()
     }
   }
 

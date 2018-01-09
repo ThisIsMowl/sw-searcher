@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import agent from '../agent'
+import common from '../actions/commonActions'
 
 import toRoman from '../helpers/toRoman'
 
@@ -11,7 +13,16 @@ const mapState = state => ({
   loading: state.common.loading,
 })
 
+const mapDispatch = dispatch => ({
+  loadTestFilm: () =>
+    dispatch(common.loadTest(agent.getFilm(2))),
+})
+
 class FilmPanel extends React.Component {
+  componentWillMount() {
+    this.props.loadTestFilm()
+  }
+
   render() {
     if (this.props.data.title) {
       let { episode_id: episodeId, title: filmTitle } = this.props.data
@@ -44,4 +55,4 @@ class FilmPanel extends React.Component {
   }
 }
 
-export default withRouter(connect(mapState, () => ({}))(FilmPanel))
+export default withRouter(connect(mapState, mapDispatch)(FilmPanel))
