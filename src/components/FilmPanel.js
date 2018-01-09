@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 import agent from '../agent'
 import common from '../actions/commonActions'
 
-import toRoman from '../helpers/toRoman'
+import helpers from '../helpers/helpers'
 
 import '../ResultsPanel.css'
 
@@ -34,7 +34,7 @@ class FilmPanel extends React.Component {
       let { episode_id: episodeId, title: filmTitle } = this.props.data
       const { opening_crawl: openingCrawl } = this.props.data
 
-      episodeId = episodeId ? toRoman(episodeId) : ''
+      episodeId = episodeId ? helpers.toRoman(episodeId) : ''
       filmTitle = filmTitle ? filmTitle.toUpperCase() : ''
 
       return (

@@ -10,4 +10,13 @@ const toRoman = (x) => {
   }
 }
 
-export default toRoman
+const capCase = (x) => {
+  if (x) {
+    return x.charAt(0).toUpperCase() + x.slice(1)
+  }
+}
+
+export default {
+  toRoman,
+  capCase,
+}

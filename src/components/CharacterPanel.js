@@ -3,8 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import agent from '../agent'
 import common from '../actions/commonActions'
-
-import toRoman from '../helpers/toRoman'
+import helpers from '../helpers/helpers'
 
 import '../ResultsPanel.css'
 
@@ -30,9 +29,39 @@ class CharacterPanel extends React.Component {
   }
 
   render() {
-    return (
-      <h1>Character page working</h1>
-    )
+    // Destructure
+
+    if (this.props.data.name) {
+      const {
+        name, 
+        height, 
+        mass,
+        gender,
+        hair_color: hairColour, 
+        skin_color: skinColour, 
+        eye_color: eyeColour,
+        birth_year: birthYear
+      } = this.props.data
+
+      return (
+        <div className="opening-crawl">
+          <h3>{name}</h3>
+          <h4>Born: {birthYear}</h4>
+          <h4>Gender: {helpers.capCase(gender)}</h4>
+          <h4>Height: {height}cm</h4>
+          <h4>Weight: {mass}kg</h4>
+          <h4>Skin Colour: {helpers.capCase(skinColour)}</h4>
+          <h4>Hair Colour: {helpers.capCase(hairColour)}</h4>
+          <h4>Eye Colour: {helpers.capCase(eyeColour)}</h4>
+        </div>
+      )
+    } else {
+      return (
+        <h1>Character page working</h1>
+      )
+    }
+
+    
   }
 }
 
