@@ -3,6 +3,8 @@ import { withRouter, Route, Switch } from 'react-router-dom'
 
 import FilmPanel from './components/FilmPanel'
 import CharacterPanel from './components/CharacterPanel'
+import PlanetPanel from './components/PlanetPanel'
+
 import SearchPanel from './components/SearchPanel'
 import './App.css'
 
@@ -14,7 +16,7 @@ const App = () => (
         <div className="content">
 
           <Switch>
-            <Route exact path="/" component={CharacterPanel} />
+            <Route exact path="/" component={PlanetPanel} />
           </Switch>
 
         </div>
