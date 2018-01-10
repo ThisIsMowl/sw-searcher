@@ -28,7 +28,9 @@ class SearchPanel extends Component {
   }
 
   render() {
-    const searchType = this.props.searchType
+    const {
+      searchType,
+    } = this.props
 
     return (
       <div className="panel--search">
