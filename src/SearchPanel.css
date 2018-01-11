@@ -1,0 +1,10 @@
+.divide-line {
+  margin: 10px auto;
+  width: 90%;
+  border: 0.5px solid black;
+}
+
+.app-title {
+  text-align: center;
+  margin: 0 auto;
+}
