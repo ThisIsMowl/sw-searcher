@@ -6,24 +6,25 @@ import numeral from 'numeral'
 import agent from '../agent'
 import common from '../actions/commonActions'
 import helpers from '../helpers/helpers'
+import keyTypes from '../keyTypes'
 
 import '../ResultsPanel.css'
 
 const mapState = state => ({
-  data: state.common.data,
+  data: state.common.resultsData,
   loading: state.common.loading,
 })
 
 const mapDispatch = dispatch => ({
-  loadTestPlan: () =>
-    dispatch(common.loadTest(agent.getPlanet(1))),
+  loadTestPlan: payload =>
+    dispatch(common.getData('resultsData', payload)),
   unloadPage: () =>
     dispatch(common.unloadPage()),
 })
 
 class PlanetPanel extends React.Component {
   componentWillMount() {
-    this.props.loadTestPlan()
+    this.props.loadTestPlan(agent.getPlanet(1))
   }
 
   componentWillUnmount() {

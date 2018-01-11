@@ -1,7 +1,8 @@
 import keyTypes from '../keyTypes'
 
 const initialState = {
-  data: [],
+  resultsData: [],
+  dropdownData: [],
   loading: false,
   errors: [],
   searchType: 'film',
@@ -14,10 +15,10 @@ const commonReducer = (state = initialState, action) => {
         ...state,
         loading: true,
       }
-    case keyTypes.LOAD_TEST:
+    case keyTypes.GET_DATA:
       return {
         ...state,
-        data: action.error ? [] : action.payload,
+        [action.key]: action.error ? [] : action.payload,
         loading: false,
         errors: action.error ? [...state.errors, action.payload] : state.errors,
       }

@@ -1,7 +1,8 @@
 import keyTypes from '../keyTypes'
 
-const loadTest = payload => ({
-  type: keyTypes.LOAD_TEST,
+const getData = (key, payload) => ({
+  type: keyTypes.GET_DATA,
+  key,
   payload,
 })
 
@@ -12,11 +13,11 @@ const searchValueChange = (key, payload) => ({
 })
 
 const unloadPage = () => ({
-  type: keyTypes.UNLOAD_PAGE
+  type: keyTypes.UNLOAD_PAGE,
 })
 
 export default {
-  loadTest,
+  getData,
   searchValueChange,
   unloadPage,
 }

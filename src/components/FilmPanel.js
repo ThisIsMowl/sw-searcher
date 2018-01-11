@@ -15,7 +15,7 @@ const mapState = state => ({
 
 const mapDispatch = dispatch => ({
   loadTestFilm: () =>
-    dispatch(common.loadTest(agent.getFilm(2))),
+    dispatch(common.getData('results', agent.getFilm(2))),
   unloadPage: () =>
     dispatch(common.unloadPage()),
 })
