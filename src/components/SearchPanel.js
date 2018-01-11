@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-
 import { connect } from 'react-redux'
+import Select from 'react-select'
+import 'react-select/dist/react-select.css'
 
 import common from '../actions/commonActions'
-
 import '../SearchPanel.css'
 
 const mapState = state => ({
@@ -37,9 +37,11 @@ class SearchPanel extends Component {
     return (
       <div className="panel--search">
         <div className="content">
-          <h1 className="app-title">SW Searcher</h1>
+          <h1 className="centre-text">SW Searcher</h1>
 
-          <h2>Select a search type:</h2>
+          <div className="divide-line" />
+
+          <h2 className="centre-text">Select a search type:</h2>
 
           <form>
             <div className="radio">
@@ -75,9 +77,9 @@ class SearchPanel extends Component {
 
             <div className="divide-line" />
 
-            <div className="">
-              <h2>Select a {searchType}:</h2>
-            </div>
+            <h2 className="centre-text">Select a {searchType}:</h2>
+
+            
 
             <button type="button">Search </button>
             <button type="button">Clear Results </button>
