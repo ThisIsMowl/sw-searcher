@@ -27,10 +27,10 @@ const commonReducer = (state = initialState, action) => {
         ...state,
         [action.key]: action.payload,
       }
-    case keyTypes.UNLOAD_PAGE:
+    case keyTypes.CLEAR_DATA:
       return {
         ...state,
-        data: [],
+        [action.key]: [],
       }
     default:
       return state

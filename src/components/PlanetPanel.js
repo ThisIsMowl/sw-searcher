@@ -18,7 +18,7 @@ const mapDispatch = dispatch => ({
   loadTestPlan: payload =>
     dispatch(common.getData('resultsData', payload)),
   unloadPage: () =>
-    dispatch(common.unloadPage()),
+    dispatch(common.clearData('resultsData')),
 })
 
 class PlanetPanel extends React.Component {

@@ -16,8 +16,14 @@ const unloadPage = () => ({
   type: keyTypes.UNLOAD_PAGE,
 })
 
+const clearData = key => ({
+  type: keyTypes.CLEAR_DATA,
+  key,
+})
+
 export default {
   getData,
   searchValueChange,
   unloadPage,
+  clearData,
 }
