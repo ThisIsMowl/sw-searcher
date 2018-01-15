@@ -15,18 +15,31 @@ const requests = {
     superagent.get(`${API_ROOT}${url}`).then(responseBody),
 }
 
-const getShip = value => requests.get(`starships/${value}`)
-const getCharacter = value => requests.get(`people/${value}`)
-const getFilm = value => requests.get(`films/${value}`)
-const getPlanet = value => requests.get(`planets/${value}`)
-const getVehicle = value => requests.get(`vehicles/${value}`)
-const getSpecies = value => requests.get(`species/${value}`)
+const Requests = {
+  getShip: value =>
+    requests.get(`starships/${value}`),
+  getCharacter: value =>
+    requests.get(`people/${value}`),
+  getFilm: value =>
+    requests.get(`films/${value}`),
+  getPlanet: value =>
+    requests.get(`planets/${value}`),
+  getVehicle: value =>
+    requests.get(`vehicles/${value}`),
+  getSpecies: value =>
+    requests.get(`species/${value}`),
+}
+
+const RequestAll = {
+  ships: () => Requests.getShip(''),
+  characters: () => Requests.getCharacter(''),
+  films: () => Requests.getFilm(''),
+  planets: () => Requests.getPlanet(''),
+  vehicles: () => Requests.getVehicle(''),
+  species: () => Requests.getSpecies(''),
+}
 
 export default {
-  getShip,
-  getCharacter,
-  getFilm,
-  getPlanet,
-  getVehicle,
-  getSpecies,
+  Requests,
+  RequestAll,
 }

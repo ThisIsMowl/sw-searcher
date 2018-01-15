@@ -6,7 +6,6 @@ import numeral from 'numeral'
 import agent from '../agent'
 import common from '../actions/commonActions'
 import helpers from '../helpers/helpers'
-import keyTypes from '../keyTypes'
 
 import '../ResultsPanel.css'
 
@@ -24,7 +23,7 @@ const mapDispatch = dispatch => ({
 
 class PlanetPanel extends React.Component {
   componentWillMount() {
-    this.props.loadTestPlan(agent.getPlanet(1))
+    this.props.loadTestPlan(agent.Requests.getPlanet(1))
   }
 
   componentWillUnmount() {
