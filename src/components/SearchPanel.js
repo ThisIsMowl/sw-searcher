@@ -22,11 +22,11 @@ const mapDispatch = dispatch => ({
 class SearchPanel extends Component {
   constructor() {
     super()
+    
+    this.changeSearchType = (e) => {
+      this.props.changeSearchValue('searchType', e.target.value)
 
-    this.changeSearchValue = (e) => {
-      this.props.changeSearchValue(e.target.name, e.target.value)
-
-      switch (e.target.name) {
+      switch (e.target.value) {
         case 'film':
           this.props.fetchDropdownData(agent.RequestAll.films())
           break
@@ -47,10 +47,6 @@ class SearchPanel extends Component {
           break
         default:
       }
-    }
-
-    this.changeSearchType = (e) => {
-      this.props.changeSearchValue('searchType', e.target.value)
     }
   }
 
