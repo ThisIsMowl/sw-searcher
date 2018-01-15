@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Select from 'react-select'
 import 'react-select/dist/react-select.css'
 
+import agent from '../agent'
 import common from '../actions/commonActions'
 import '../SearchPanel.css'
 
@@ -12,6 +13,8 @@ const mapState = state => ({
 })
 
 const mapDispatch = dispatch => ({
+  fetchDropdownData: payload =>
+    dispatch(common.getData('dropdownData', payload)),
   changeSearchValue: (key, payload) =>
     dispatch(common.searchValueChange(key, payload)),
 })
@@ -22,6 +25,28 @@ class SearchPanel extends Component {
 
     this.changeSearchValue = (e) => {
       this.props.changeSearchValue(e.target.name, e.target.value)
+
+      switch (e.target.name) {
+        case 'film':
+          this.props.fetchDropdownData(agent.RequestAll.films())
+          break
+        case 'species':
+          this.props.fetchDropdownData(agent.RequestAll.species())
+          break
+        case 'vehicle':
+          this.props.fetchDropdownData(agent.RequestAll.vehicles())
+          break
+        case 'planet':
+          this.props.fetchDropdownData(agent.RequestAll.planets())
+          break
+        case 'character':
+          this.props.fetchDropdownData(agent.RequestAll.characters())
+          break
+        case 'starship':
+          this.props.fetchDropdownData(agent.RequestAll.ships())
+          break
+        default:
+      }
     }
 
     this.changeSearchType = (e) => {
@@ -79,7 +104,6 @@ class SearchPanel extends Component {
 
             <h2 className="centre-text">Select a {searchType}:</h2>
 
-            
 
             <button type="button">Search </button>
             <button type="button">Clear Results </button>
