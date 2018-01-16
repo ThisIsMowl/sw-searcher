@@ -12,10 +12,6 @@ const searchValueChange = (key, payload) => ({
   payload,
 })
 
-const unloadPage = () => ({
-  type: keyTypes.UNLOAD_PAGE,
-})
-
 const clearData = key => ({
   type: keyTypes.CLEAR_DATA,
   key,
