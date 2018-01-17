@@ -1,9 +1,11 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import common from './reducers/common'
+import dropdown from './reducers/dropdown'
 import _middleware from './middleware'
 
 const reducer = combineReducers({
   common,
+  dropdown,
 })
 
 const middleware = applyMiddleware(_middleware.PromiseMiddleware)
