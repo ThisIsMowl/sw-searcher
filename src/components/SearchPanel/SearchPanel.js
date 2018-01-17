@@ -3,12 +3,13 @@ import { connect } from 'react-redux'
 import Select from 'react-select'
 import 'react-select/dist/react-select.css'
 
-import agent from '../agent'
-import common from '../actions/commonActions'
-import '../SearchPanel.css'
+import agent from '../../agent'
+import common from '../../actions/commonActions'
+import '../../SearchPanel.css'
+
+import SearchResultsList from './SearchResultsList'
 
 const mapState = state => ({
-  searchBox: state.common.searchBox,
   searchType: state.common.searchType,
 })
 
@@ -28,22 +29,22 @@ class SearchPanel extends Component {
 
       switch (e.target.value) {
         case 'film':
-          this.props.fetchDropdownData(agent.RequestAll.films())
+          this.props.fetchDropdownData(agent.RequestAll.films(1))
           break
         case 'species':
-          this.props.fetchDropdownData(agent.RequestAll.species())
+          this.props.fetchDropdownData(agent.RequestAll.species(1))
           break
         case 'vehicle':
-          this.props.fetchDropdownData(agent.RequestAll.vehicles())
+          this.props.fetchDropdownData(agent.RequestAll.vehicles(1))
           break
         case 'planet':
-          this.props.fetchDropdownData(agent.RequestAll.planets())
+          this.props.fetchDropdownData(agent.RequestAll.planets(1))
           break
         case 'character':
-          this.props.fetchDropdownData(agent.RequestAll.characters())
+          this.props.fetchDropdownData(agent.RequestAll.characters(1))
           break
         case 'starship':
-          this.props.fetchDropdownData(agent.RequestAll.ships())
+          this.props.fetchDropdownData(agent.RequestAll.ships(1))
           break
         default:
       }
@@ -98,11 +99,7 @@ class SearchPanel extends Component {
 
             <div className="divide-line" />
 
-            <h2 className="centre-text">Select a {searchType}:</h2>
-
-
-            <button type="button">Search </button>
-            <button type="button">Clear Results </button>
+            <SearchResultsList searchType={searchType}/>
           </form>
         </div>
       </div>

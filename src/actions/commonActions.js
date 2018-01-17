@@ -20,6 +20,5 @@ const clearData = key => ({
 export default {
   getData,
   searchValueChange,
-  unloadPage,
   clearData,
 }

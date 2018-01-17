@@ -5,7 +5,7 @@ import FilmPanel from './components/FilmPanel'
 import CharacterPanel from './components/CharacterPanel'
 import PlanetPanel from './components/PlanetPanel'
 
-import SearchPanel from './components/SearchPanel'
+import SearchPanel from './components/SearchPanel/SearchPanel'
 import './App.css'
 
 const App = () => (
@@ -13,13 +13,7 @@ const App = () => (
     <div className="container">
       <SearchPanel />
       <div className="panel--results">
-        <div className="content">
-
-          <Switch>
-            <Route exact path="/" component={PlanetPanel} />
-          </Switch>
-
-        </div>
+        <div className="content" />
       </div>
     </div>
   </div>

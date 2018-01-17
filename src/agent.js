@@ -31,12 +31,12 @@ const Requests = {
 }
 
 const RequestAll = {
-  ships: () => Requests.getShip(''),
-  characters: () => Requests.getCharacter(''),
-  films: () => Requests.getFilm(''),
-  planets: () => Requests.getPlanet(''),
-  vehicles: () => Requests.getVehicle(''),
-  species: () => Requests.getSpecies(''),
+  ships: page => requests.get(`starsjips?page=${page}`),
+  characters: page => requests.get(`people?page=${page}`),
+  films: page => requests.get(`films?page=${page}`),
+  planets: page => requests.get(`planets?page=${page}`),
+  vehicles: page => requests.get(`vehicles?page=${page}`),
+  species: page => requests.get(`species?page=${page}`),
 }
 
 export default {

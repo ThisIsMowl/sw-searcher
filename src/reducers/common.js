@@ -5,7 +5,7 @@ const initialState = {
   dropdownData: [],
   loading: false,
   errors: [],
-  searchType: 'film',
+  searchType: '',
 }
 
 const commonReducer = (state = initialState, action) => {
