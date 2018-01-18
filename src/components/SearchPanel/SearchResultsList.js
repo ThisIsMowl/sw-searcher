@@ -1,17 +1,32 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import resultListActions from '../../actions/resultsListActions'
 
-const mapDispatch = () => ({})
+const mapState = state => ({
+  ...state.dropdown,
+})
+
+const mapDispatch = dispatch => ({
+  nextPage: () => 
+    dispatch(resultListActions.increaseResultsPage()),
+  previousPage: () =>
+    dispatch(resultListActions.decreaseResultsPage()),
+})
 
 class SearchResultsList extends React.Component {
   render() {
-    const searchType = this.props.searchType ? this.props.searchType : 'blah'
+    const {
+      searchType,
+      page: resultsPage,
+    } = this.props
 
-    if (searchType !== 'blah') {
+    if (searchType !== '') {
       return (
         <div>
           <h2 className="centre-text">Select a {searchType}:</h2>
+          
 
+          <h4 className="centre-text">Page {resultsPage}</h4>
 
           <button type="button">Search </button>
           <button type="button">Clear Results </button>
@@ -21,4 +36,4 @@ class SearchResultsList extends React.Component {
   }
 }
 
-export default connect(() => ({}), mapDispatch)(SearchResultsList)
+export default connect(mapState, mapDispatch)(SearchResultsList)

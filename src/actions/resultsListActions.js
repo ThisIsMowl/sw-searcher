@@ -7,3 +7,8 @@ const increaseResultsPage = () => ({
 const decreaseResultsPage = () => ({
   type: keyTypes.RESULTS_LIST_PAGE_BACKWARDS,
 })
+
+export default {
+  increaseResultsPage,
+  decreaseResultsPage,
+}
