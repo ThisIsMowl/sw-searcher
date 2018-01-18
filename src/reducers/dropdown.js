@@ -15,6 +15,14 @@ const dropdownReducer = (state = initialState, action) => {
         }
       }
       return state
+    case keyTypes.CLEAR_DATA:
+      if (action.subtype === 'dropdown') {
+        return {
+          ...state,
+          data: [],
+        }
+      }
+      return state
     case keyTypes.RESULTS_LIST_PAGE_FORWARDS:
       return {
         ...state,

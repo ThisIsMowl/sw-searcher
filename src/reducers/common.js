@@ -1,7 +1,7 @@
 import keyTypes from '../keyTypes'
 
 const initialState = {
-  resultsData: [],
+  data: [],
   loading: false,
   errors: [],
   searchType: '',
@@ -18,7 +18,7 @@ const commonReducer = (state = initialState, action) => {
       if (action.subtype === 'results') {
         return {
           ...state,
-          resultsData: action.error ? [] : action.payload,
+          data: action.error ? [] : action.payload,
           loading: false,
           errors: action.error ? [...state.errors, action.payload] : state.errors,
         }
@@ -30,10 +30,13 @@ const commonReducer = (state = initialState, action) => {
         [action.key]: action.payload,
       }
     case keyTypes.CLEAR_DATA:
-      return {
-        ...state,
-        [action.key]: [],
+      if (action.subtype === 'results') {
+        return {
+          ...state,
+          data: [],
+        }
       }
+      return state
     default:
       return state
   }
