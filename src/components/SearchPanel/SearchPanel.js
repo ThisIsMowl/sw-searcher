@@ -12,7 +12,6 @@ const mapState = state => ({
 })
 
 class SearchPanel extends Component {
-
   render() {
     const {
       searchType,
@@ -28,12 +27,12 @@ class SearchPanel extends Component {
           <h2 className="centre-text">Select a search type:</h2>
 
           <form>
-            
+
             <TypeSelection searchType={searchType} />
 
             <div className="divide-line" />
 
-            <SearchResultsList searchType={searchType}/>
+            <SearchResultsList searchType={searchType} />
           </form>
         </div>
       </div>
