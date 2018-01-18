@@ -6,7 +6,7 @@ import agent from '../../agent'
 
 const mapDispatch = dispatch => ({
   fetchDropdownData: payload =>
-    dispatch(common.getData('dropdownData', payload)),
+    dispatch(common.getData('dropdown', payload)),
   changeSearchValue: (key, payload) =>
     dispatch(common.searchValueChange(key, payload)),
 })

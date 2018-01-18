@@ -1,8 +1,8 @@
 import keyTypes from '../keyTypes'
 
-const getData = (key, payload) => ({
+const getData = (subtype, payload) => ({
   type: keyTypes.GET_DATA,
-  key,
+  subtype,
   payload,
 })
 

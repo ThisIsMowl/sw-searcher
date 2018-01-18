@@ -7,6 +7,14 @@ const initialState = {
 
 const dropdownReducer = (state = initialState, action) => {
   switch (action.type) {
+    case keyTypes.GET_DATA:
+      if (action.subtype === 'dropdown') {
+        return {
+          ...state,
+          data: action.error ? [] : action.payload,
+        }
+      }
+      return state
     case keyTypes.RESULTS_LIST_PAGE_FORWARDS:
       return {
         ...state,

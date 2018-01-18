@@ -13,7 +13,7 @@ const mapDispatch = dispatch => ({
   previousPage: () =>
     dispatch(resultListActions.decreaseResultsPage()),
   loadDropdownData: payload =>
-    dispatch(common.getData('dropdownData', payload)),
+    dispatch(common.getData('dropdown', payload)),
 })
 
 class SearchResultsList extends React.Component {
@@ -45,7 +45,8 @@ class SearchResultsList extends React.Component {
           <button type="button">Clear Results </button>
         </div>
       )
-    } else return null
+    }
+    return null
   }
 }
 
