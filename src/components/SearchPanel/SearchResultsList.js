@@ -7,15 +7,17 @@ class SearchResultsList extends React.Component {
   render() {
     const searchType = this.props.searchType ? this.props.searchType : 'blah'
 
-    return (
-      <div>
-        <h2 className="centre-text">Select a {searchType}:</h2>
+    if (searchType !== 'blah') {
+      return (
+        <div>
+          <h2 className="centre-text">Select a {searchType}:</h2>
 
 
-        <button type="button">Search </button>
-        <button type="button">Clear Results </button>
-      </div>
-    )
+          <button type="button">Search </button>
+          <button type="button">Clear Results </button>
+        </div>
+      )
+    } else return null
   }
 }
 
