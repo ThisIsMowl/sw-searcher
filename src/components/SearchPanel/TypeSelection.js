@@ -9,6 +9,8 @@ const mapDispatch = dispatch => ({
     dispatch(common.getData('dropdown', payload)),
   changeSearchValue: (key, payload) =>
     dispatch(common.searchValueChange(key, payload)),
+  clearData: subtype =>
+    dispatch(common.clearData(subtype)),
 })
 
 class TypeSelection extends React.Component {
@@ -17,7 +19,7 @@ class TypeSelection extends React.Component {
 
     this.changeSearchType = (e) => {
       this.props.changeSearchValue('searchType', e.target.value)
-
+      this.props.clearData('dropdown')
       this.props.fetchDropdownData(agent.RequestAll(e.target.value, 1))
     }
   }

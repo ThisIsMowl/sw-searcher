@@ -12,9 +12,9 @@ const searchValueChange = (key, payload) => ({
   payload,
 })
 
-const clearData = key => ({
+const clearData = subtype => ({
   type: keyTypes.CLEAR_DATA,
-  key,
+  subtype,
 })
 
 export default {

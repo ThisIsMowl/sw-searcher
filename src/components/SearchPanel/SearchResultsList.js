@@ -2,18 +2,21 @@ import React from 'react'
 import { connect } from 'react-redux'
 import resultListActions from '../../actions/resultsListActions'
 import common from '../../actions/commonActions'
+import agent from '../../agent'
 
 const mapState = state => ({
   ...state.dropdown,
 })
 
 const mapDispatch = dispatch => ({
-  nextPage: () => 
+  nextPage: () =>
     dispatch(resultListActions.increaseResultsPage()),
   previousPage: () =>
     dispatch(resultListActions.decreaseResultsPage()),
-  loadDropdownData: payload =>
+  getData: payload =>
     dispatch(common.getData('dropdown', payload)),
+  clearData: () =>
+    dispatch(common.clearData('dropdown')),
 })
 
 class SearchResultsList extends React.Component {
@@ -21,9 +24,13 @@ class SearchResultsList extends React.Component {
     super()
     this.nextPage = () => {
       this.props.nextPage()
+      this.props.clearData()
+      this.props.getData(agent.RequestAll(this.props.searchType, this.props.page + 1))
     }
     this.previousPage = () => {
       this.props.previousPage()
+      this.props.clearData()
+      this.props.getData(agent.RequestAll(this.props.searchType, this.props.page - 1))
     }
   }
 
@@ -31,15 +38,23 @@ class SearchResultsList extends React.Component {
     const {
       searchType,
       page: resultsPage,
+      data,
     } = this.props
 
-    if (searchType !== '') {
+    if (searchType !== '' && data !== []) {
       return (
         <div>
           <h2 className="centre-text">Select a {searchType}:</h2>
-          
+
+          {data.next ? (
+            <button type="button" onClick={this.nextPage}>Next Page</button>
+          ) : null}
+          {data.previous ? (
+            <button type="button" onClick={this.previousPage}>Previous Page</button>
+          ) : null}
 
           <h4 className="centre-text">Page {resultsPage}</h4>
+
 
           <button type="button">Search </button>
           <button type="button">Clear Results </button>
