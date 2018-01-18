@@ -18,27 +18,7 @@ class TypeSelection extends React.Component {
     this.changeSearchType = (e) => {
       this.props.changeSearchValue('searchType', e.target.value)
 
-      switch (e.target.value) {
-        case 'film':
-          this.props.fetchDropdownData(agent.RequestAll.films(1))
-          break
-        case 'species':
-          this.props.fetchDropdownData(agent.RequestAll.species(1))
-          break
-        case 'vehicle':
-          this.props.fetchDropdownData(agent.RequestAll.vehicles(1))
-          break
-        case 'planet':
-          this.props.fetchDropdownData(agent.RequestAll.planets(1))
-          break
-        case 'character':
-          this.props.fetchDropdownData(agent.RequestAll.characters(1))
-          break
-        case 'starship':
-          this.props.fetchDropdownData(agent.RequestAll.ships(1))
-          break
-        default:
-      }
+      this.props.fetchDropdownData(agent.RequestAll(e.target.value, 1))
     }
   }
 

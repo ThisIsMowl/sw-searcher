@@ -30,13 +30,23 @@ const Requests = {
     requests.get(`species/${value}`),
 }
 
-const RequestAll = {
-  ships: page => requests.get(`starsjips?page=${page}`),
-  characters: page => requests.get(`people?page=${page}`),
-  films: page => requests.get(`films?page=${page}`),
-  planets: page => requests.get(`planets?page=${page}`),
-  vehicles: page => requests.get(`vehicles?page=${page}`),
-  species: page => requests.get(`species?page=${page}`),
+const RequestAll = (type, page) => {
+  switch (type) {
+    case 'film':
+      return requests.get(`films?page=${page}`)
+    case 'species':
+      return requests.get(`species?page=${page}`)
+    case 'vehicle':
+      return requests.get(`vehicles?page=${page}`)
+    case 'planet':
+      return requests.get(`planets?page=${page}`)
+    case 'character':
+      return requests.get(`people?page=${page}`)
+    case 'starship':
+      return requests.get(`starships?page=${page}`)
+    default:
+      return null
+  }
 }
 
 export default {
