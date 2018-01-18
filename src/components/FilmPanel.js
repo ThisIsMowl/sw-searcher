@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
 import agent from '../agent'
 import common from '../actions/commonActions'
 
@@ -61,4 +60,4 @@ class FilmPanel extends React.Component {
   }
 }
 
-export default withRouter(connect(mapState, mapDispatch)(FilmPanel))
+export default connect(mapState, mapDispatch)(FilmPanel)

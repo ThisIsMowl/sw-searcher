@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
 import agent from '../agent'
 import common from '../actions/commonActions'
 import helpers from '../helpers/helpers'
@@ -56,4 +55,4 @@ class CharacterPanel extends React.Component {
   }
 }
 
-export default withRouter(connect(mapState, mapDispatch)(CharacterPanel))
+export default connect(mapState, mapDispatch)(CharacterPanel)

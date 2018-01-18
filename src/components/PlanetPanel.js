@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
 import numeral from 'numeral'
 
 import agent from '../agent'
@@ -60,4 +59,4 @@ class PlanetPanel extends React.Component {
   }
 }
 
-export default withRouter(connect(mapState, mapDispatch)(PlanetPanel))
+export default connect(mapState, mapDispatch)(PlanetPanel)

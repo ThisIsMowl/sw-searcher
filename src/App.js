@@ -1,5 +1,4 @@
 import React from 'react'
-import { withRouter, Route, Switch } from 'react-router-dom'
 
 import FilmPanel from './components/FilmPanel'
 import CharacterPanel from './components/CharacterPanel'
@@ -19,4 +18,4 @@ const App = () => (
   </div>
 )
 
-export default withRouter(App)
+export default App
