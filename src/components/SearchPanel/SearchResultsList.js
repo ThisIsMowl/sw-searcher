@@ -46,11 +46,21 @@ class SearchResultsList extends React.Component {
         <div>
           <h2 className="centre-text">Select a {searchType}:</h2>
 
-          {data.next ? (
-            <button type="button" onClick={this.nextPage}>Next Page</button>
-          ) : null}
+          {
+            data.results ?
+              data.results.map((x, i) => (
+                <div className="search-result">
+                  <a href="#">{x.name}</a> {i}
+                </div>
+                ))
+            : null
+          }
+
           {data.previous ? (
             <button type="button" onClick={this.previousPage}>Previous Page</button>
+          ) : null}
+          {data.next ? (
+            <button type="button" onClick={this.nextPage}>Next Page</button>
           ) : null}
 
           <h4 className="centre-text">Page {resultsPage}</h4>
