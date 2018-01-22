@@ -29,6 +29,11 @@ const commonReducer = (state = initialState, action) => {
         ...state,
         [action.key]: action.payload,
       }
+    case keyTypes.MOVE_TO_RESULTS_PANEL:
+      return {
+        ...state,
+        data: action.payload,
+      }
     case keyTypes.CLEAR_DATA:
       if (action.subtype === 'results') {
         return {

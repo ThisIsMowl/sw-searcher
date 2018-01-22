@@ -15,8 +15,10 @@ const mapDispatch = dispatch => ({
     dispatch(resultListActions.decreaseResultsPage()),
   getData: payload =>
     dispatch(common.getData('dropdown', payload)),
-  clearData: () =>
-    dispatch(common.clearData('dropdown')),
+  clearData: type =>
+    dispatch(common.clearData(type)),
+  transferData: payload =>
+    dispatch(resultListActions.movetoResultsPage(payload)),
 })
 
 class SearchResultsList extends React.Component {
@@ -24,13 +26,17 @@ class SearchResultsList extends React.Component {
     super()
     this.nextPage = () => {
       this.props.nextPage()
-      this.props.clearData()
+      this.props.clearData('dropdown')
       this.props.getData(agent.RequestAll(this.props.searchType, this.props.page + 1))
     }
     this.previousPage = () => {
       this.props.previousPage()
-      this.props.clearData()
+      this.props.clearData('dropdown')
       this.props.getData(agent.RequestAll(this.props.searchType, this.props.page - 1))
+    }
+
+    this.moveResults = (payload) => {
+      this.props.transferData(payload)
     }
   }
 
@@ -49,8 +55,8 @@ class SearchResultsList extends React.Component {
           {
             data.results ?
               data.results.map((x, i) => (
-                <div className="search-result">
-                  <a href="#">{x.name}</a> {i}
+                <div className="search-result" key={i}>
+                  <button type="button" onClick={() => this.moveResults(x)}>{x.name}</button>
                 </div>
                 ))
             : null
@@ -65,8 +71,6 @@ class SearchResultsList extends React.Component {
 
           <h4 className="centre-text">Page {resultsPage}</h4>
 
-
-          <button type="button">Search </button>
           <button type="button">Clear Results </button>
         </div>
       )
