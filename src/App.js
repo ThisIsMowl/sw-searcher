@@ -1,10 +1,7 @@
 import React from 'react'
 
-import FilmPanel from './components/FilmPanel'
-import CharacterPanel from './components/CharacterPanel'
-import PlanetPanel from './components/PlanetPanel'
-
 import SearchPanel from './components/SearchPanel/SearchPanel'
+import ResultsPanel from './components/ResultsPanels/ResultsPanel'
 import './App.css'
 
 const App = () => (
@@ -12,7 +9,7 @@ const App = () => (
     <div className="container">
       <SearchPanel />
       <div className="panel--results">
-        <div className="content" />
+        <ResultsPanel />
       </div>
     </div>
   </div>

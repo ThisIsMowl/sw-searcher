@@ -20,6 +20,7 @@ const dropdownReducer = (state = initialState, action) => {
         return {
           ...state,
           data: [],
+          page: 1,
         }
       }
       return state

@@ -38,6 +38,11 @@ class SearchResultsList extends React.Component {
     this.moveResults = (payload) => {
       this.props.transferData(payload)
     }
+
+    this.clearAll = () => {
+      this.props.clearData('dropdown')
+      this.props.clearData('results')
+    }
   }
 
   render() {
@@ -71,7 +76,7 @@ class SearchResultsList extends React.Component {
 
           <h4 className="centre-text">Page {resultsPage}</h4>
 
-          <button type="button">Clear Results </button>
+          <button type="button" onClick={this.clearAll}>Clear Results </button>
         </div>
       )
     }
