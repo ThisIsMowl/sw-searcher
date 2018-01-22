@@ -20,6 +20,7 @@ class TypeSelection extends React.Component {
     this.changeSearchType = (e) => {
       this.props.changeSearchValue('searchType', e.target.value)
       this.props.clearData('dropdown')
+      this.props.clearData('results')
       this.props.fetchDropdownData(agent.RequestAll(e.target.value, 1))
     }
   }

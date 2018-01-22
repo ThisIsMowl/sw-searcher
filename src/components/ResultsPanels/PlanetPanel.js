@@ -1,48 +1,25 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import numeral from 'numeral'
 
-import agent from '../agent'
-import common from '../actions/commonActions'
-import helpers from '../helpers/helpers'
+import helpers from '../../helpers/helpers'
 
-import '../ResultsPanel.css'
+import '../../ResultsPanel.css'
 
-const mapState = state => ({
-  data: state.common.resultsData,
-  loading: state.common.loading,
-})
+const PlanetPanel = (props) => {
+  // Destructure
+  const {
+    name,
+    rotation_period: rotation,
+    orbital_period: orbitalPeriod,
+    diameter,
+    climate,
+    gravity,
+    terrain,
+    surface_water: surfaceWater,
+    population,
+  } = props.data
 
-const mapDispatch = dispatch => ({
-  loadTestPlan: payload =>
-    dispatch(common.getData('resultsData', payload)),
-  unloadPage: () =>
-    dispatch(common.clearData('resultsData')),
-})
-
-class PlanetPanel extends React.Component {
-  componentWillMount() {
-    this.props.loadTestPlan(agent.Requests.getPlanet(1))
-  }
-
-  componentWillUnmount() {
-    this.props.unloadPage()
-  }
-
-  render() {
-    // Destructure
-    const {
-      name,
-      rotation_period: rotation,
-      orbital_period: orbitalPeriod,
-      diameter,
-      climate,
-      gravity,
-      terrain,
-      surface_water: surfaceWater,
-      population,
-    } = this.props.data
-
+  if (name) {
     return (
       <div className="opening-crawl">
         <h3>{name}</h3>
@@ -57,6 +34,7 @@ class PlanetPanel extends React.Component {
       </div>
     )
   }
+  return null
 }
 
-export default connect(mapState, mapDispatch)(PlanetPanel)
+export default PlanetPanel

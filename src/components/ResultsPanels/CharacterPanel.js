@@ -1,45 +1,21 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import agent from '../agent'
-import common from '../actions/commonActions'
-import helpers from '../helpers/helpers'
+import helpers from '../../helpers/helpers'
 
-import '../ResultsPanel.css'
+const CharacterPanel = (props) => {
+  // Destructure
+  const {
+    name,
+    height,
+    mass,
+    gender,
+    hair_color: hairColour,
+    skin_color: skinColour,
+    eye_color: eyeColour,
+    birth_year: birthYear,
+  } = props.data
 
-const mapState = state => ({
-  data: state.common.data,
-  loading: state.common.loading,
-})
 
-const mapDispatch = dispatch => ({
-  loadTestChar: () =>
-    dispatch(common.loadTest(agent.getCharacter(1))),
-  unloadPage: () =>
-    dispatch(common.unloadPage()),
-})
-
-class CharacterPanel extends React.Component {
-  componentWillMount() {
-    this.props.loadTestChar()
-  }
-
-  componentWillUnmount() {
-    this.props.unloadPage()
-  }
-
-  render() {
-    // Destructure
-    const {
-      name,
-      height,
-      mass,
-      gender,
-      hair_color: hairColour,
-      skin_color: skinColour,
-      eye_color: eyeColour,
-      birth_year: birthYear,
-    } = this.props.data
-
+  if (name) {
     return (
       <div className="opening-crawl">
         <h3>{name}</h3>
@@ -53,6 +29,7 @@ class CharacterPanel extends React.Component {
       </div>
     )
   }
+  return null
 }
 
-export default connect(mapState, mapDispatch)(CharacterPanel)
+export default CharacterPanel

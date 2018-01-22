@@ -1,63 +1,28 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import agent from '../agent'
-import common from '../actions/commonActions'
+import helpers from '../../helpers/helpers'
 
-import helpers from '../helpers/helpers'
+const FilmPanel = (props) => {
+  let { episode_id: episodeId, title: filmTitle } = props.data
+  const { opening_crawl: openingCrawl } = props.data
 
-import '../ResultsPanel.css'
+  if (episodeId) {
+    episodeId = helpers.toRoman(episodeId)
+    filmTitle = filmTitle.toUpperCase()
 
-const mapState = state => ({
-  data: state.common.data,
-  loading: state.common.loading,
-})
-
-const mapDispatch = dispatch => ({
-  loadTestFilm: () =>
-    dispatch(common.getData('results', agent.getFilm(2))),
-  unloadPage: () =>
-    dispatch(common.unloadPage()),
-})
-
-class FilmPanel extends React.Component {
-  componentWillMount() {
-    this.props.loadTestFilm()
-  }
-
-  componentWillUnmount() {
-    this.props.unloadPage()
-  }
-
-  render() {
-    if (this.props.data.title) {
-      let { episode_id: episodeId, title: filmTitle } = this.props.data
-      const { opening_crawl: openingCrawl } = this.props.data
-
-      episodeId = episodeId ? helpers.toRoman(episodeId) : ''
-      filmTitle = filmTitle ? filmTitle.toUpperCase() : ''
-
-      return (
-        <div>
-          <div className="titles">
-            <h1>STAR WARS</h1>
-            <h2>EPISODE {episodeId}</h2>
-            <h2>{filmTitle}</h2>
-          </div>
-
-          <p className="opening-crawl">
-            {openingCrawl}
-          </p>
-        </div>
-
-      )
-    } else {
-      return (
+    return (
+      <div>
         <div className="titles">
-          <h1>Loading...</h1>
+          <h1>STAR WARS</h1>
+          <h2>EPISODE {episodeId}</h2>
+          <h2>{filmTitle}</h2>
         </div>
-      )
-    }
+        <p className="opening-crawl">
+          {openingCrawl}
+        </p>
+      </div>
+    )
   }
+  return null
 }
 
-export default connect(mapState, mapDispatch)(FilmPanel)
+export default FilmPanel
