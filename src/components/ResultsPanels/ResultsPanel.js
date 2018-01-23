@@ -4,6 +4,9 @@ import { connect } from 'react-redux'
 import CharacterPanel from './CharacterPanel'
 import FilmPanel from './FilmPanel'
 import PlanetPanel from './PlanetPanel'
+import SpeciesPanel from './SpeciesPanel'
+import ShipPanel from './ShipPanel'
+import VehiclePanel from './VehiclePanel'
 
 import '../../ResultsPanel.css'
 
@@ -20,11 +23,11 @@ const ResultsPanel = (props) => {
       case 'film':
         return (<FilmPanel data={props.data} />)
       case 'species':
-        return (<h4>Species</h4>)
+        return (<SpeciesPanel data={props.data} />)
       case 'starship':
-        return (<h4>Starship</h4>)
+        return (<ShipPanel data={props.data} />)
       case 'vehicle':
-        return (<h4>Vehicle</h4>)
+        return (<VehiclePanel data={props.data} />)
       case 'character':
         return (<CharacterPanel data={props.data} />)
       default:
