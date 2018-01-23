@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import resultListActions from '../../actions/resultsListActions'
 import common from '../../actions/commonActions'
 import agent from '../../agent'
+import helpers from '../../helpers/helpers'
 
 const mapState = state => ({
   ...state.dropdown,
@@ -47,23 +48,29 @@ class SearchResultsList extends React.Component {
 
   render() {
     const {
-      searchType,
       page: resultsPage,
       data,
     } = this.props
 
+    let searchType = this.props.searchType
+
     if (searchType !== '' && data !== []) {
+
       return (
         <div>
           <h2 className="centre-text">Select a {searchType}:</h2>
 
           {
             data.results ?
-              data.results.map((x, i) => (
-                <div className="search-result" key={i}>
-                  <button type="button" onClick={() => this.moveResults(x)}>{x.name}</button>
-                </div>
-                ))
+              data.results.map((x, i) => {
+
+                const title = searchType === 'film' ? `Episode ${helpers.toRoman(x.episode_id)}: ${x.title}` : x.name
+                
+                return (
+                  <div className="search-result" key={i}>
+                    <button type="button" onClick={() => this.moveResults(x)}>{title}</button>
+                  </div>
+                )})
             : null
           }
 
