@@ -49,35 +49,44 @@ class SearchResultsList extends React.Component {
   render() {
     const {
       page: resultsPage,
-      data,
+      searchType,
     } = this.props
 
-    let searchType = this.props.searchType
+    let {
+      results,
+    } = this.props.data
 
-    if (searchType !== '' && data !== []) {
+    const {
+      next,
+      previous,
+    } = this.props.data
 
+    if (results && searchType === 'film') {
+      results = results.sort((a, b) => a.episode_id - b.episode_id)
+    }
+
+    if (searchType !== '' && results) {
       return (
         <div>
           <h2 className="centre-text">Select a {searchType}:</h2>
 
           {
-            data.results ?
-              data.results.map((x, i) => {
-
+            results ?
+              results.map((x) => {
                 const title = searchType === 'film' ? `Episode ${helpers.toRoman(x.episode_id)}: ${x.title}` : x.name
-                
                 return (
-                  <div className="search-result" key={i}>
+                  <div className="search-result" key={x.url}>
                     <button type="button" onClick={() => this.moveResults(x)}>{title}</button>
                   </div>
-                )})
+                )
+              })
             : null
           }
 
-          {data.previous ? (
+          {previous ? (
             <button type="button" onClick={this.previousPage}>Previous Page</button>
           ) : null}
-          {data.next ? (
+          {next ? (
             <button type="button" onClick={this.nextPage}>Next Page</button>
           ) : null}
 
