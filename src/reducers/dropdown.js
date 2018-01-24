@@ -20,10 +20,14 @@ const dropdownReducer = (state = initialState, action) => {
         return {
           ...state,
           data: [],
-          page: 1,
         }
       }
       return state
+    case keyTypes.SEARCH_VALUE_CHANGE:
+      return {
+        ...state,
+        page: 1,
+      }
     case keyTypes.RESULTS_LIST_PAGE_FORWARDS:
       return {
         ...state,
