@@ -90,7 +90,9 @@ class SearchResultsList extends React.Component {
             <button type="button" onClick={this.nextPage}>Next Page</button>
           ) : null}
 
-          <h4 className="centre-text">Page {resultsPage}</h4>
+          {previous || next ? (
+            <h4 className="centre-text">Page {resultsPage}</h4>
+          ) : null}
 
           <button type="button" onClick={this.clearAll}>Clear Results </button>
         </div>
