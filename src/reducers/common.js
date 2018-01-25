@@ -15,15 +15,10 @@ const commonReducer = (state = initialState, action) => {
         loading: true,
       }
     case keyTypes.GET_DATA:
-      if (action.subtype === 'results') {
-        return {
-          ...state,
-          data: action.error ? [] : action.payload,
-          loading: false,
-          errors: action.error ? [...state.errors, action.payload] : state.errors,
-        }
+      return {
+        ...state,
+        loading: false,
       }
-      return state
     case keyTypes.SEARCH_VALUE_CHANGE:
       return {
         ...state,

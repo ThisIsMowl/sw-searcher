@@ -7,6 +7,7 @@ import helpers from '../../helpers/helpers'
 
 const mapState = state => ({
   ...state.dropdown,
+  loading: state.common.loading,
 })
 
 const mapDispatch = dispatch => ({
@@ -50,6 +51,7 @@ class SearchResultsList extends React.Component {
     const {
       page: resultsPage,
       searchType,
+      loading,
     } = this.props
 
     let {
@@ -65,13 +67,13 @@ class SearchResultsList extends React.Component {
       results = results.sort((a, b) => a.episode_id - b.episode_id)
     }
 
-    if (searchType !== '' && results) {
+    if (searchType !== '') {
       return (
         <div>
           <h2 className="centre-text">Select a {searchType}:</h2>
 
           {
-            results ?
+            results && !loading ?
               results.map((x) => {
                 const title = searchType === 'film' ? `Episode ${helpers.toRoman(x.episode_id)}: ${x.title}` : x.name
                 return (
@@ -80,15 +82,12 @@ class SearchResultsList extends React.Component {
                   </div>
                 )
               })
-            : null
+              : (<h2>Loading</h2>)
           }
 
-          {previous ? (
-            <button type="button" onClick={this.previousPage}>Previous Page</button>
-          ) : null}
-          {next ? (
-            <button type="button" onClick={this.nextPage}>Next Page</button>
-          ) : null}
+
+          <button type="button" onClick={this.previousPage} disabled={loading || !previous}>Previous Page</button>
+          <button type="button" onClick={this.nextPage} disabled={loading || !next}>Next Page</button>
 
           {previous || next ? (
             <h4 className="centre-text">Page {resultsPage}</h4>
