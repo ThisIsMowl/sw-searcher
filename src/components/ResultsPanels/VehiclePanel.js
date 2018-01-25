@@ -1,8 +1,6 @@
 import React from 'react'
 import Numeral from 'numeral'
 
-import helpers from '../../helpers/helpers'
-
 const VehiclePanel = (props) => {
   // Destructure
   const {
