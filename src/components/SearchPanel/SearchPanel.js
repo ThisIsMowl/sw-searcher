@@ -5,7 +5,7 @@ import 'react-select/dist/react-select.css'
 import '../../SearchPanel.css'
 
 import TypeSelection from './TypeSelection'
-import SearchResultsList from './SearchResultsList'
+import SearchResultsHolder from './SearchResultsHolder'
 
 const mapState = state => ({
   searchType: state.common.searchType,
@@ -32,7 +32,7 @@ class SearchPanel extends Component {
 
             <div className="divide-line" />
 
-            <SearchResultsList searchType={searchType} />
+            <SearchResultsHolder searchType={searchType} />
           </form>
         </div>
       </div>
