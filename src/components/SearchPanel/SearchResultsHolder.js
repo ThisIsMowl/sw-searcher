@@ -4,7 +4,7 @@ import resultListActions from '../../actions/resultsListActions'
 import common from '../../actions/commonActions'
 import agent from '../../agent'
 
-import SearchResultsList from './SearchResultsList'
+import SearchResult from './SearchResult'
 
 const mapState = state => ({
   ...state.dropdown,
@@ -69,8 +69,10 @@ class SearchResultsHolder extends React.Component {
         <div>
           <h2 className="centre-text">Select a {searchType}:</h2>
 
-          <SearchResultsList searchType={searchType} results={results} loading = {loading} />
-          
+          {results ?
+            results.map(x => (<SearchResult data={x} />))
+             : <h2>Loading</h2>}
+
           <button type="button" onClick={this.previousPage} disabled={loading || !previous}>Previous Page</button>
           <button type="button" onClick={this.nextPage} disabled={loading || !next}>Next Page</button>
 
