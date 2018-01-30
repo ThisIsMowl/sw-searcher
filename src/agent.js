@@ -33,7 +33,7 @@ const Requests = {
 const RequestAll = (type, page) => {
   switch (type) {
     case 'film':
-      return requests.get(`filmz?page=${page}`)
+      return requests.get(`films?page=${page}`)
     case 'species':
       return requests.get(`species?page=${page}`)
     case 'vehicle':
