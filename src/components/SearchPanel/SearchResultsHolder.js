@@ -5,10 +5,12 @@ import common from '../../actions/commonActions'
 import agent from '../../agent'
 
 import SearchResult from './SearchResult'
+import ErrorMessageHolder from '../ErrorMessageHolder'
 
 const mapState = state => ({
   ...state.dropdown,
   loading: state.common.loading,
+  error: state.common.error,
 })
 
 const mapDispatch = dispatch => ({
@@ -49,6 +51,7 @@ class SearchResultsHolder extends React.Component {
       page: resultsPage,
       searchType,
       loading,
+      error,
     } = this.props
 
     let {
@@ -64,7 +67,7 @@ class SearchResultsHolder extends React.Component {
       results = results.sort((a, b) => a.episode_id - b.episode_id)
     }
 
-    if (searchType !== '') {
+    if (searchType !== '' && error === '') {
       return (
         <div>
           <h2 className="centre-text">Select a {searchType}:</h2>
@@ -82,6 +85,10 @@ class SearchResultsHolder extends React.Component {
 
           <button type="button" onClick={this.clearAll}>Clear Results </button>
         </div>
+      )
+    } else if (error !== '') {
+      return (
+        <ErrorMessageHolder error={error} />
       )
     }
     return null

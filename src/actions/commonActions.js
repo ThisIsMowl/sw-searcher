@@ -17,8 +17,13 @@ const clearData = subtype => ({
   subtype,
 })
 
+const clearError = () => ({
+  type: keyTypes.CLEAR_ERROR,
+})
+
 export default {
   getData,
   searchValueChange,
   clearData,
+  clearError,
 }

@@ -3,12 +3,18 @@ import keyTypes from '../keyTypes'
 const initialState = {
   data: [],
   loading: false,
-  errors: [],
+  error: '',
   searchType: '',
 }
 
 const commonReducer = (state = initialState, action) => {
   switch (action.type) {
+    case keyTypes.CLEAR_ERROR:
+      return {
+        ...state,
+        error: '',
+        searchType: '',
+      }
     case keyTypes.ASYNC_START:
       return {
         ...state,
@@ -18,6 +24,7 @@ const commonReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
+        error: action.error ? action.payload.status : '',
       }
     case keyTypes.SEARCH_VALUE_CHANGE:
       return {

@@ -20,7 +20,7 @@ const PromiseMiddleware = store => next => (action) => {
       })
       .catch((err) => {
         action.error = true
-        action.payload = err.response.statusText
+        action.payload = err.response.error
         store.dispatch(action)
       })
 
