@@ -39,6 +39,7 @@ body {
   
   .panel--search {
     width: 33.3%;
+    overflow-y: auto;
   }
   
   .panel--results {

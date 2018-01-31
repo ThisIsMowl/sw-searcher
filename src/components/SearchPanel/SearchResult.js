@@ -32,7 +32,7 @@ class SearchResult extends React.Component {
 
       return (
         <div className="search-result" key={data.url}>
-          <button type="button" onClick={() => this.moveResults(data)}>{title}</button>
+          <button type="button" className="btn btn-success" onClick={() => this.moveResults(data)}>{title}</button>
         </div>
       )
     }
