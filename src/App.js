@@ -6,7 +6,7 @@ import './App.css'
 
 const App = () => (
   <div className="App">
-    <div className="container">
+    <div className="insideapp">
       <SearchPanel />
       <div className="panel--results">
         <ResultsPanel />
