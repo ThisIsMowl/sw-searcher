@@ -74,16 +74,18 @@ class SearchResultsHolder extends React.Component {
 
           {results ?
             results.map(x => (<SearchResult data={x} />))
-             : <h2>Loading</h2>}
+             : <h2 className="centre-text loading">Loading...</h2>}
 
-          <button type="button" onClick={this.previousPage} disabled={loading || !previous}>Previous Page</button>
-          <button type="button" onClick={this.nextPage} disabled={loading || !next}>Next Page</button>
+          <div>
+            <button type="button" onClick={this.previousPage} disabled={loading || !previous}>Previous Page</button>
+            <button type="button" onClick={this.nextPage} disabled={loading || !next}>Next Page</button>
+          </div>
 
           {previous || next ? (
-            <h4 className="centre-text">Page {resultsPage}</h4>
+            <div><h4 className="centre-text">Page {resultsPage}</h4></div>
           ) : null}
 
-          <button type="button" onClick={this.clearAll}>Clear Results </button>
+          <div><button type="button" onClick={this.clearAll}>Clear Results </button></div>
         </div>
       )
     } else if (error !== '') {

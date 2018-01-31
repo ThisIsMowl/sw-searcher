@@ -19,7 +19,7 @@ class ErrorMessageHolder extends React.Component {
     const { error } = this.props
     if (error) {
       return (
-        <div>
+        <div className="centre-text">
           <h4>Error</h4>
           <ErrorMessage error={error} />
           <button type="button" onClick={this.clearError}>Clear Error</button>
