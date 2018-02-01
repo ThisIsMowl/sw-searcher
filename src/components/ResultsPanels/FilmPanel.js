@@ -11,7 +11,7 @@ const FilmPanel = (props) => {
 
     return (
       <div>
-        <div className="titles">
+        <div className="text-center">
           <h1>STAR WARS</h1>
           <h2>EPISODE {episodeId}</h2>
           <h2>{filmTitle}</h2>
