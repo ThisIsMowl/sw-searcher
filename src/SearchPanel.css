@@ -17,3 +17,11 @@
 .loading {
   margin: 15px 0;
 }
+
+.next-page {
+  float: right;
+}
+
+.prev-page {
+  float: left;
+}

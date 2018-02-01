@@ -14,14 +14,30 @@
   margin: 0 auto;
 }
 
+.opening-crawl h3 {
+  font-size: 2em;
+}
+
+.opening-crawl h4 {
+  font-size: 1.5em;
+}
+
 @media screen and (max-width: 1028px) {
-  .opening-crawl {
+  .opening-crawl h3 {
     font-size: 1.5em;
+  }
+
+  .opening-crawl h4 {
+    font-size: 1em;
   }
 }
 
 @media screen and (max-width: 576px) {
-  .opening-crawl {
-    font-size: 1em;
+  .opening-crawl h3 {
+    font-size: 0.75em;
+  }
+
+  .opening-crawl h4 {
+    font-size: 0.5em;
   }
 }

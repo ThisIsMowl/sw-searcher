@@ -19,7 +19,7 @@ body {
 }
 
 @media screen and (min-width: 576px) {
-  .container {
+  .insideapp {
     width: 75%;
   }
 }
@@ -44,5 +44,6 @@ body {
   
   .panel--results {
     width: 66.7%;
+    overflow-y: auto;
   }
 }

@@ -70,20 +70,20 @@ class SearchResultsHolder extends React.Component {
     if (searchType !== '' && error === '') {
       return (
         <div>
-          <h2 className="centre-text">Select a {searchType}:</h2>
+          {results ? <h2 className="centre-text">Select a {searchType}:</h2> : null}
 
           {results ?
             results.map(x => (<SearchResult data={x} />))
              : <h2 className="centre-text loading">Loading...</h2>}
 
-          <div>
-            <button type="button" className="btn btn-info" onClick={this.previousPage} disabled={loading || !previous}>Previous Page</button>
-            <button type="button" className="btn btn-info" onClick={this.nextPage} disabled={loading || !next}>Next Page</button>
-          </div>
-
           {previous || next ? (
             <div><h4 className="centre-text">Page {resultsPage}</h4></div>
           ) : null}
+
+          <div>
+            <button type="button" className="btn btn-info prev-page" onClick={this.previousPage} disabled={loading || !previous}>Previous Page</button>
+            <button type="button" className="btn btn-info next-page" onClick={this.nextPage} disabled={loading || !next}>Next Page</button>
+          </div>
 
           <div><button type="button" className="btn btn-danger" onClick={this.clearAll}>Clear Results </button></div>
         </div>
