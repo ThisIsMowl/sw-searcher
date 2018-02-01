@@ -72,14 +72,14 @@ class SearchResultsHolder extends React.Component {
     if (searchType !== '' && error === '') {
       return (
         <div>
-          {results ? <h2 className="centre-text">Select a {searchType}:</h2> : null}
+          {results ? <h2 className="text-center">Select a {searchType}:</h2> : null}
 
           {results ?
             results.map(x => (<SearchResult data={x} />))
-             : <h2 className="centre-text loading">Loading...</h2>}
+             : <h2 className="text-center loading">Loading...</h2>}
 
           {previous || next ? (
-            <div><h4 className="centre-text">Page {resultsPage}</h4></div>
+            <div><h4 className="text-center">Page {resultsPage}</h4></div>
           ) : null}
 
           <div className="clearfix">
