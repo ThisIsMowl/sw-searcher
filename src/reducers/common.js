@@ -9,13 +9,6 @@ const initialState = {
 
 const commonReducer = (state = initialState, action) => {
   switch (action.type) {
-    case keyTypes.CLEAR_ALL:
-      return {
-        ...state,
-        error: '',
-        searchType: '',
-        data: [],
-      }
     case keyTypes.ASYNC_START:
       return {
         ...state,
@@ -32,19 +25,23 @@ const commonReducer = (state = initialState, action) => {
         ...state,
         [action.key]: action.payload,
       }
-    case keyTypes.MOVE_TO_RESULTS_PANEL:
+    case keyTypes.MOVE_TO_VIEWING_PANEL:
       return {
         ...state,
         data: action.payload,
       }
-    case keyTypes.CLEAR_DATA:
-      if (action.subtype === 'results') {
-        return {
-          ...state,
-          data: [],
-        }
+    case keyTypes.CLEAR_VIEWING_PANEL:
+      return {
+        ...state,
+        data: [],
       }
-      return state
+    case keyTypes.CLEAR_ALL:
+      return {
+        ...state,
+        error: '',
+        searchType: '',
+        data: [],
+      }
     default:
       return state
   }

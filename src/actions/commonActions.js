@@ -1,8 +1,7 @@
 import keyTypes from '../keyTypes'
 
-const getData = (subtype, payload) => ({
+const getData = payload => ({
   type: keyTypes.GET_DATA,
-  subtype,
   payload,
 })
 
@@ -12,9 +11,8 @@ const searchValueChange = (key, payload) => ({
   payload,
 })
 
-const clearData = subtype => ({
-  type: keyTypes.CLEAR_DATA,
-  subtype,
+const clearViewingPanel = () => ({
+  type: keyTypes.CLEAR_VIEWING_PANEL,
 })
 
 const clearAll = () => ({
@@ -24,6 +22,6 @@ const clearAll = () => ({
 export default {
   getData,
   searchValueChange,
-  clearData,
   clearAll,
+  clearViewingPanel,
 }

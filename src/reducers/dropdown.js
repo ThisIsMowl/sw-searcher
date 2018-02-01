@@ -8,25 +8,20 @@ const initialState = {
 const dropdownReducer = (state = initialState, action) => {
   switch (action.type) {
     case keyTypes.GET_DATA:
-      if (action.subtype === 'dropdown') {
-        return {
-          ...state,
-          data: action.error ? [] : action.payload,
-        }
+      return {
+        ...state,
+        data: action.error ? [] : action.payload,
       }
-      return state
-    case keyTypes.CLEAR_DATA:
-      if (action.subtype === 'dropdown') {
-        return {
-          ...state,
-          data: [],
-        }
+    case keyTypes.CLEAR_DROPDOWN:
+      return {
+        ...state,
+        data: [],
       }
-      return state
     case keyTypes.CLEAR_ALL:
       return {
         ...state,
         data: [],
+        page: 1,
       }
     case keyTypes.SEARCH_VALUE_CHANGE:
       return {

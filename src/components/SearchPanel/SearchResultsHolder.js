@@ -6,6 +6,7 @@ import agent from '../../agent'
 
 import SearchResult from './SearchResult'
 import ErrorMessageHolder from '../ErrorMessageHolder'
+import resultsListActions from '../../actions/resultsListActions';
 
 const mapState = state => ({
   ...state.dropdown,
@@ -19,9 +20,9 @@ const mapDispatch = dispatch => ({
   previousPage: () =>
     dispatch(resultListActions.decreaseResultsPage()),
   getData: payload =>
-    dispatch(common.getData('dropdown', payload)),
-  clearData: type =>
-    dispatch(common.clearData(type)),
+    dispatch(common.getData(payload)),
+  clearDropdownData: () =>
+    dispatch(resultsListActions.clearDropdownData()),
   clearAll: () =>
     dispatch(common.clearAll()),
   transferData: payload =>
@@ -33,12 +34,12 @@ class SearchResultsHolder extends React.Component {
     super()
     this.nextPage = () => {
       this.props.nextPage()
-      this.props.clearData('dropdown')
+      this.props.clearDropdownData()
       this.props.getData(agent.RequestAll(this.props.searchType, this.props.page + 1))
     }
     this.previousPage = () => {
       this.props.previousPage()
-      this.props.clearData('dropdown')
+      this.props.clearDropdownData()
       this.props.getData(agent.RequestAll(this.props.searchType, this.props.page - 1))
     }
 

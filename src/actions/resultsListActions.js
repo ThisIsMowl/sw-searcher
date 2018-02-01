@@ -8,13 +8,18 @@ const decreaseResultsPage = () => ({
   type: keyTypes.RESULTS_LIST_PAGE_BACKWARDS,
 })
 
-const movetoResultsPage = payload => ({
-  type: keyTypes.MOVE_TO_RESULTS_PANEL,
+const movetoViewingPanel = payload => ({
+  type: keyTypes.MOVE_TO_VIEWING_PANEL,
   payload,
+})
+
+const clearDropdownData = () => ({
+  type: keyTypes.CLEAR_DROPDOWN,
 })
 
 export default {
   increaseResultsPage,
   decreaseResultsPage,
-  movetoResultsPage,
+  movetoViewingPanel,
+  clearDropdownData,
 }

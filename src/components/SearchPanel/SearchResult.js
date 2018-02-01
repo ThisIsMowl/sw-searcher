@@ -10,7 +10,7 @@ const mapState = state => ({
 
 const mapDispatch = dispatch => ({
   transferData: payload =>
-    dispatch(resultListActions.movetoResultsPage(payload)),
+    dispatch(resultListActions.movetoViewingPanel(payload)),
 })
 
 class SearchResult extends React.Component {

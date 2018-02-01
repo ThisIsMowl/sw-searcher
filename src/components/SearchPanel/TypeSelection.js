@@ -2,15 +2,18 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import common from '../../actions/commonActions'
+import resultsListActions from '../../actions/resultsListActions'
 import agent from '../../agent'
 
 const mapDispatch = dispatch => ({
   fetchDropdownData: payload =>
-    dispatch(common.getData('dropdown', payload)),
+    dispatch(common.getData(payload)),
   changeSearchValue: (key, payload) =>
     dispatch(common.searchValueChange(key, payload)),
-  clearData: subtype =>
-    dispatch(common.clearData(subtype)),
+  clearViewingPanel: () =>
+    dispatch(common.clearViewingPanel()),
+  clearDropdownData: () =>
+    dispatch(resultsListActions.clearDropdownData()),
 })
 
 class TypeSelection extends React.Component {
@@ -19,8 +22,8 @@ class TypeSelection extends React.Component {
 
     this.changeSearchType = (e) => {
       this.props.changeSearchValue('searchType', e.target.value)
-      this.props.clearData('dropdown')
-      this.props.clearData('results')
+      this.props.clearViewingPanel()
+      this.props.clearDropdownData()
       this.props.fetchDropdownData(agent.RequestAll(e.target.value, 1))
     }
   }
