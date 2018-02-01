@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import resultListActions from '../../actions/resultsListActions'
 import common from '../../actions/commonActions'
 import agent from '../../agent'
 
