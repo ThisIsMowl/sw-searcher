@@ -6,13 +6,13 @@ import commonActions from '../actions/commonActions'
 
 const mapDispatch = dispatch => ({
   clearError: () =>
-    dispatch(commonActions.clearError()),
+    dispatch(commonActions.clearAll()),
 }) 
 
 class ErrorMessageHolder extends React.Component {
   constructor() {
     super()
-    this.clearError = () => this.props.clearError()
+    this.clearAll = () => this.props.clearAll()
   }
 
   render() {
@@ -22,7 +22,7 @@ class ErrorMessageHolder extends React.Component {
         <div className="centre-text">
           <h4>Error</h4>
           <ErrorMessage error={error} />
-          <button type="button" onClick={this.clearError}>Clear Error</button>
+          <button type="button" onClick={this.clearAll}>Clear Error</button>
         </div>
       )
     }

@@ -23,6 +23,11 @@ const dropdownReducer = (state = initialState, action) => {
         }
       }
       return state
+    case keyTypes.CLEAR_ALL:
+      return {
+        ...state,
+        data: [],
+      }
     case keyTypes.SEARCH_VALUE_CHANGE:
       return {
         ...state,

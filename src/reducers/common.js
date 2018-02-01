@@ -9,11 +9,12 @@ const initialState = {
 
 const commonReducer = (state = initialState, action) => {
   switch (action.type) {
-    case keyTypes.CLEAR_ERROR:
+    case keyTypes.CLEAR_ALL:
       return {
         ...state,
         error: '',
         searchType: '',
+        data: [],
       }
     case keyTypes.ASYNC_START:
       return {

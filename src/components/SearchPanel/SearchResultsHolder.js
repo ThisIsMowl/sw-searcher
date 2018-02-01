@@ -22,6 +22,8 @@ const mapDispatch = dispatch => ({
     dispatch(common.getData('dropdown', payload)),
   clearData: type =>
     dispatch(common.clearData(type)),
+  clearAll: () =>
+    dispatch(common.clearAll()),
   transferData: payload =>
     dispatch(resultListActions.movetoResultsPage(payload)),
 })
@@ -41,8 +43,7 @@ class SearchResultsHolder extends React.Component {
     }
 
     this.clearAll = () => {
-      this.props.clearData('dropdown')
-      this.props.clearData('results')
+      this.props.clearAll()
     }
   }
 

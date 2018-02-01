@@ -17,13 +17,13 @@ const clearData = subtype => ({
   subtype,
 })
 
-const clearError = () => ({
-  type: keyTypes.CLEAR_ERROR,
+const clearAll = () => ({
+  type: keyTypes.CLEAR_ALL,
 })
 
 export default {
   getData,
   searchValueChange,
   clearData,
-  clearError,
+  clearAll,
 }
