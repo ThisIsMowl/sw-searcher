@@ -11,33 +11,31 @@ const mapState = state => ({
   searchType: state.common.searchType,
 })
 
-class SearchPanel extends Component {
-  render() {
-    const {
-      searchType,
-    } = this.props
+const SearchPanel = (props) => {
+  const {
+    searchType,
+  } = props
 
-    return (
-      <div className="panel--search">
-        <div className="content">
-          <h1 className="text-center">SW Searcher</h1>
+  return (
+    <div className="panel--search">
+      <div className="content">
+        <h1 className="text-center">SW Searcher</h1>
+
+        <div className="divide-line" />
+
+        <h2 className="text-center">Select a search type:</h2>
+
+        <form>
+
+          <TypeSelection searchType={searchType} />
 
           <div className="divide-line" />
 
-          <h2 className="text-center">Select a search type:</h2>
-
-          <form>
-
-            <TypeSelection searchType={searchType} />
-
-            <div className="divide-line" />
-
-            <SearchResultsHolder searchType={searchType} />
-          </form>
-        </div>
+          <SearchResultsHolder searchType={searchType} />
+        </form>
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default connect(mapState, () => ({}))(SearchPanel)
