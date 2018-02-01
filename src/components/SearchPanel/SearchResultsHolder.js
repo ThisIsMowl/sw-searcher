@@ -1,11 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import resultListActions from '../../actions/resultsListActions'
 import common from '../../actions/commonActions'
 import agent from '../../agent'
 
 import SearchResult from './SearchResult'
 import ErrorMessageHolder from '../ErrorMessageHolder'
-import resultsListActions from '../../actions/resultsListActions';
 
 const mapState = state => ({
   ...state.dropdown,
@@ -21,7 +21,7 @@ const mapDispatch = dispatch => ({
   getData: payload =>
     dispatch(common.getData(payload)),
   clearDropdownData: () =>
-    dispatch(resultsListActions.clearDropdownData()),
+    dispatch(resultListActions.clearDropdownData()),
   clearAll: () =>
     dispatch(common.clearAll()),
   transferData: payload =>
