@@ -16,9 +16,9 @@ const FilmPanel = (props) => {
           <h2>EPISODE {episodeId}</h2>
           <h2>{filmTitle}</h2>
         </div>
-        <p className="opening-crawl">
-          {openingCrawl}
-        </p>
+        <div className="opening-crawl">
+          <p>{openingCrawl}</p>
+        </div>
       </div>
     )
   }

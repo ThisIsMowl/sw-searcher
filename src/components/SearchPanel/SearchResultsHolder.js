@@ -80,12 +80,14 @@ class SearchResultsHolder extends React.Component {
             <div><h4 className="centre-text">Page {resultsPage}</h4></div>
           ) : null}
 
-          <div>
-            <button type="button" className="btn btn-info prev-page" onClick={this.previousPage} disabled={loading || !previous}>Previous Page</button>
-            <button type="button" className="btn btn-info next-page" onClick={this.nextPage} disabled={loading || !next}>Next Page</button>
+          <div className="clearfix">
+            <button type="button" className="btn btn-info float-left" onClick={this.previousPage} disabled={loading || !previous}>Previous Page</button>
+            <button type="button" className="btn btn-info float-right" onClick={this.nextPage} disabled={loading || !next}>Next Page</button>
           </div>
 
-          <div><button type="button" className="btn btn-danger" onClick={this.clearAll}>Clear Results </button></div>
+          <div className="clear-button">
+            <button type="button" className="btn btn-danger" onClick={this.clearAll}>Clear Results</button>
+          </div>
         </div>
       )
     } else if (error !== '') {
