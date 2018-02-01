@@ -20,11 +20,11 @@ class SearchPanel extends Component {
     return (
       <div className="panel--search">
         <div className="content">
-          <h1 className="centre-text">SW Searcher</h1>
+          <h1 className="text-center">SW Searcher</h1>
 
           <div className="divide-line" />
 
-          <h2 className="centre-text">Select a search type:</h2>
+          <h2 className="text-center">Select a search type:</h2>
 
           <form>
 
