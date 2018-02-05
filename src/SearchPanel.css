@@ -12,3 +12,13 @@
 .loading {
   margin: 15px 0;
 }
+
+.page-text {
+  font-size: 2em;
+}
+
+@media screen and (max-width: 576px) {
+  .page-text {
+    font-size: 1em;
+  }
+}
