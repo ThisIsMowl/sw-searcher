@@ -12,7 +12,7 @@ const mapDispatch = dispatch => ({
 class ErrorMessageHolder extends React.Component {
   constructor() {
     super()
-    this.clearAll = () => this.props.clearAll()
+    this.clearAll = () => this.props.clearError()
   }
 
   render() {
@@ -20,9 +20,9 @@ class ErrorMessageHolder extends React.Component {
     if (error) {
       return (
         <div className="text-center">
-          <h4>Error</h4>
+          <h5>Error</h5>
           <ErrorMessage error={error} />
-          <button type="button" onClick={this.clearAll}>Clear Error</button>
+          <button type="button" className="btn btn-danger" onClick={this.clearAll}>Try Again</button>
         </div>
       )
     }
