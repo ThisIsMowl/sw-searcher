@@ -32,7 +32,7 @@ const VehiclePanel = (props) => {
         <h4>Manufacturer: {manufacturer}</h4>
         <h4>Cargo Capacity: {Numeral(capacity).format()}</h4>
         <h4>Speed: {atmoSpeed}km/h</h4>
-        <h4>Cost: {cost === 'unknown' ? 'Unknown' : `${cost} credits`}</h4>
+        <h4>Cost: {cost === 'unknown' ? 'Unknown' : `${Numeral(cost).format()} credits`}</h4>
         <h4>Max. Consumable Supply: {helpers.capCase(consumables)}</h4>
       </div>
     )
