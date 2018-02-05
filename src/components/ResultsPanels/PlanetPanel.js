@@ -21,7 +21,7 @@ const PlanetPanel = (props) => {
 
   if (name) {
     return (
-      <div className="opening-crawl">
+      <div className="result-content">
         <h3>{name}</h3>
         <h4>Population: {numeral(population).format('0,0')}</h4>
         <h4>Diameter: {numeral(diameter).format('0.00a')}m</h4>

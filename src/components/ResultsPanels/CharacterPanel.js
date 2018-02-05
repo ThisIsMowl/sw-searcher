@@ -17,7 +17,7 @@ const CharacterPanel = (props) => {
 
   if (name) {
     return (
-      <div className="opening-crawl">
+      <div className="result-content">
         <h3>{name}</h3>
         <h4>Born: {birthYear}</h4>
         <h4>Gender: {helpers.capCase(gender)}</h4>

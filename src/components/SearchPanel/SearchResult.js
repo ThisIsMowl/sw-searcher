@@ -31,7 +31,7 @@ class SearchResult extends React.Component {
       const title = searchType === 'film' ? `Episode ${helpers.toRoman(data.episode_id)}: ${data.title}` : data.name
 
       return (
-        <div className="search-result" key={data.url}>
+        <div className="search-result">
           <button type="button" className="btn btn-success" onClick={() => this.moveResults(data)}>{title}</button>
         </div>
       )

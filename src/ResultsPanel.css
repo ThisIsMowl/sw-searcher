@@ -1,48 +1,42 @@
 .panel--results {
   background-color: #111;
   color: yellow;
+  text-align: left;
+  font-size: 2em;
 }
 
-.opening-crawl {
-  text-align: justify;
+h3 {
   font-size: 2em;
+}
+
+h4 {
+  font-size: 1.5em;
+}
+
+.result-content {
   width: 75%;
   margin: 0 auto;
 }
 
-.opening-crawl h3 {
-  font-size: 2em;
-}
-
-.opening-crawl h4 {
-  font-size: 1.5em;
-}
-
-.clear-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
-}
 
 @media screen and (max-width: 1028px) {
-  .opening-crawl h3 {
+  h3 {
     font-size: 1.5em;
     margin-top: 10px;
   }
 
-  .opening-crawl h4 {
+  h4 {
     font-size: 1em;
     margin-bottom: 10px;
   }
 }
 
 @media screen and (max-width: 576px) {
-  .opening-crawl h3, .opening-crawl p {
+  h3, p {
     font-size: 0.75em;
   }
 
-  .opening-crawl h4 {
+  h4 {
     font-size: 0.65em;
   }
 }

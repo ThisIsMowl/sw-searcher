@@ -22,7 +22,7 @@ const ShipPanel = (props) => {
 
   if (name) {
     return (
-      <div className="opening-crawl">
+      <div className="result-content">
         <h3>{name}</h3>
         <h4>Length: {Numeral(length).format()}m</h4>
         <h4>Crew: {Numeral(crew).format()}</h4>

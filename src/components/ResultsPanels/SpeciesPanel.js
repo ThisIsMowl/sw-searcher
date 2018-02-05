@@ -20,7 +20,7 @@ const SpeciesPanel = (props) => {
 
   if (name) {
     return (
-      <div className="opening-crawl">
+      <div className="result-content">
         <h3>{name}</h3>
         <h4>Average Height: {Numeral(averageHeight).format('0.00 a')}</h4>
         <h4>Average lifespan: {averageLifespan} years</h4>
