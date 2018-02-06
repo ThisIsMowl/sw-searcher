@@ -23,7 +23,7 @@ const SearchPanel = (props) => {
 
         <div className="divide-line" />
 
-        <h2 className="text-center">Select a search type:</h2>
+        <h2 className="text-center section-header">Select a search type:</h2>
 
         <form>
 

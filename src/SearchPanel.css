@@ -1,3 +1,7 @@
+.panel--search {
+  background-color: #bbb;
+}
+
 .divide-line {
   margin: 10px auto;
   width: 90%;
@@ -16,10 +20,20 @@
 .page-text {
   font-size: 2em;
 }
+
 .clr-results {
   margin-left: auto;
   margin-right: auto;
   margin-top:20px;
+}
+
+.radio {
+  font-size:20px;
+  font-weight: bold;
+}
+
+.section-header {
+  font-weight: bolder;
 }
 
 @media screen and (max-width: 576px) {
@@ -29,5 +43,9 @@
 
   .clr-results {
     margin-top:10px;
+  }
+  
+  .section-header {
+    font-size:25px;
   }
 }

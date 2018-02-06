@@ -1,5 +1,5 @@
 body {
-  background-color: #aaa
+  background-color: #999
 }
 
 .insideapp {
@@ -7,10 +7,6 @@ body {
   flex-direction: column;
   width: 90%;
   margin: 0 auto;
-}
-
-.panel--search {
-  background-color: #ccc;
 }
 
 .content {

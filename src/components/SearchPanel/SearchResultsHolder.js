@@ -71,7 +71,7 @@ class SearchResultsHolder extends React.Component {
     if (searchType !== '' && error === '') {
       return (
         <div>
-          {results ? <h2 className="text-center">Select a {searchType}:</h2> : null}
+          {results ? <h2 className="text-center section-header">Select a {searchType}:</h2> : null}
 
           {results ?
             results.map(x => (<SearchResult key={x.url} data={x} />))
