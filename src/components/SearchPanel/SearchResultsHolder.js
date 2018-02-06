@@ -79,8 +79,10 @@ class SearchResultsHolder extends React.Component {
 
           <div className="clearfix">
             {!loading ? (<div>
-              <button type="button" className="btn btn-info float-left" onClick={this.previousPage} disabled={!previous}>Previous Page</button>
-              <button type="button" className="btn btn-info float-right" onClick={this.nextPage} disabled={!next}>Next Page</button>
+              <button type="button" className="d-sm-none btn btn-sm btn-info float-left" onClick={this.previousPage} disabled={!previous}>Prev Page</button>
+              <button type="button" className="d-sm-none btn btn-sm btn-info float-right" onClick={this.nextPage} disabled={!next}>Next Page</button>
+              <button type="button" className="d-none d-md-block btn btn-info float-left" onClick={this.previousPage} disabled={!previous}>Prev Page</button>
+              <button type="button" className="d-none d-md-block btn btn-info float-right" onClick={this.nextPage} disabled={!next}>Next Page</button>
             </div>) : null}
             
 
@@ -89,8 +91,9 @@ class SearchResultsHolder extends React.Component {
           ) : null}
           </div>
           
-          {!loading ? (<div className="clear-button">
-            <button type="button" className="btn btn-danger" onClick={this.clearAll}>Clear Results</button>
+          {!loading ? (<div className="text-center">
+            <button type="button" className="d-sm-none btn btn-sm btn-danger clr-results" onClick={this.clearAll}>Clear Results</button>
+            <button type="button" className="d-none d-md-block btn btn-danger clr-results" onClick={this.clearAll}>Clear Results</button>
           </div>) : null }
           
         </div>

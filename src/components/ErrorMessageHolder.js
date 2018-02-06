@@ -22,7 +22,8 @@ class ErrorMessageHolder extends React.Component {
         <div className="text-center">
           <h5>Error</h5>
           <ErrorMessage error={error} />
-          <button type="button" className="btn btn-danger" onClick={this.clearAll}>Try Again</button>
+          <button type="button" className="d-sm-none btn btn-sm btn-danger" onClick={this.clearAll}>Try Again</button>
+          <button type="button" className="d-none d-md-block btn btn-danger" onClick={this.clearAll}>Try Again</button>
         </div>
       )
     }

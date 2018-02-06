@@ -32,7 +32,8 @@ class SearchResult extends React.Component {
 
       return (
         <div className="search-result">
-          <button type="button" className="btn btn-success" onClick={() => this.moveResults(data)}>{title}</button>
+          <button type="button" className="d-sm-none btn btn-sm btn-success" onClick={() => this.moveResults(data)}>{title}</button>
+          <button type="button" className="d-none d-md-block btn btn-success" onClick={() => this.moveResults(data)}>{title}</button>
         </div>
       )
     }
