@@ -1,4 +1,4 @@
-#SW Searcher
+# SW Searcher
 
 __SW Searcher__ is a small application for browsing through the [Star Wars API](https://swapi.co/).
 
