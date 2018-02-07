@@ -11,7 +11,7 @@ const reducer = combineReducers({
 const middleware = applyMiddleware(_middleware.PromiseMiddleware)
 
 /* eslint-disable no-underscore-dangle */
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const composeEnhancers = compose
 /* eslint-enable */
 
 const store = createStore(
