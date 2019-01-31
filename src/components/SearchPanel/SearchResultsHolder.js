@@ -1,5 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import Hotkeys from 'react-hot-keys'
+
 import resultListActions from '../../actions/resultsListActions'
 import common from '../../actions/commonActions'
 import agent from '../../agent'
@@ -47,6 +49,16 @@ class SearchResultsHolder extends React.Component {
     }
   }
 
+  onKeyDown(keyName, e, handler) {
+    e.preventDefault()
+    let keyEnd = keyName.slice((keyName.length) - 1)
+
+    switch (keyEnd){
+      case 'x':
+        this.clearAll()
+    }
+  }
+
   render() {
     const {
       page: resultsPage,
@@ -70,33 +82,42 @@ class SearchResultsHolder extends React.Component {
 
     if (searchType !== '' && error === '') {
       return (
-        <div>
-          {results ? <h2 className="text-center section-header">Select a {searchType}:</h2> : null}
-
-          {results ?
-            results.map(x => (<SearchResult key={x.url} data={x} />))
-             : <h2 className="text-center loading">Loading...</h2>}
-
-          <div className="clearfix">
-            {!loading ? (<div>
-              <button type="button" className="d-sm-none btn btn-sm btn-info float-left" onClick={this.previousPage} disabled={!previous}>Prev Page</button>
-              <button type="button" className="d-sm-none btn btn-sm btn-info float-right" onClick={this.nextPage} disabled={!next}>Next Page</button>
-              <button type="button" className="d-none d-md-block btn btn-info float-left" onClick={this.previousPage} disabled={!previous}>Prev Page</button>
-              <button type="button" className="d-none d-md-block btn btn-info float-right" onClick={this.nextPage} disabled={!next}>Next Page</button>
-            </div>) : null}
+        <Hotkeys
+          keyName="
+            ctrl+x,
+            command+x,
             
+          "
+          onKeyDown={this.onKeyDown.bind(this)}
+        >
+          <div>
+            {results ? <h2 className="text-center section-header">Select a {searchType}:</h2> : null}
 
-            {previous || next ? (
-              <h4 className="text-center page-text">Page {resultsPage}</h4>
-          ) : null}
+            {results ?
+              results.map(x => (<SearchResult key={x.url} data={x} />))
+              : <h2 className="text-center loading">Loading...</h2>}
+
+            <div className="clearfix">
+              {!loading ? (<div>
+                <button type="button" className="d-sm-none btn btn-sm btn-info float-left" onClick={this.previousPage} disabled={!previous}>Prev Page</button>
+                <button type="button" className="d-sm-none btn btn-sm btn-info float-right" onClick={this.nextPage} disabled={!next}>Next Page</button>
+                <button type="button" className="d-none d-md-block btn btn-info float-left" onClick={this.previousPage} disabled={!previous}>Prev Page</button>
+                <button type="button" className="d-none d-md-block btn btn-info float-right" onClick={this.nextPage} disabled={!next}>Next Page</button>
+              </div>) : null}
+
+
+              {previous || next ? (
+                <h4 className="text-center page-text">Page {resultsPage}</h4>
+              ) : null}
+            </div>
+
+            {!loading ? (<div className="text-center">
+              <button type="button" className="d-sm-none btn btn-sm btn-danger clr-results" onClick={this.clearAll}>Clear Results</button>
+              <button type="button" className="d-none d-md-block btn btn-danger clr-results" onClick={this.clearAll}>Clear Results</button>
+            </div>) : null}
+
           </div>
-          
-          {!loading ? (<div className="text-center">
-            <button type="button" className="d-sm-none btn btn-sm btn-danger clr-results" onClick={this.clearAll}>Clear Results</button>
-            <button type="button" className="d-none d-md-block btn btn-danger clr-results" onClick={this.clearAll}>Clear Results</button>
-          </div>) : null }
-          
-        </div>
+        </Hotkeys>
       )
     } else if (error !== '') {
       return (
