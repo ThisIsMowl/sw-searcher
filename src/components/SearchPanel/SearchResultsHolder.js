@@ -51,11 +51,19 @@ class SearchResultsHolder extends React.Component {
 
   onKeyDown(keyName, e, handler) {
     e.preventDefault()
-    let keyEnd = keyName.slice((keyName.length) - 1)
 
-    switch (keyEnd){
-      case 'x':
+    switch (keyName){
+      case ('ctrl+x' || 'command+x'):
         this.clearAll()
+        break
+      case ('a'):
+        if (this.props.data.previous) this.previousPage()
+        break
+      case ('d'):
+        if (this.props.data.next) this.nextPage()
+        break
+      default:
+        break
     }
   }
 
@@ -86,7 +94,8 @@ class SearchResultsHolder extends React.Component {
           keyName="
             ctrl+x,
             command+x,
-            
+            a,
+            d
           "
           onKeyDown={this.onKeyDown.bind(this)}
         >
