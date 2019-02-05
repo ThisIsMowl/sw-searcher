@@ -28,6 +28,8 @@ const mapDispatch = dispatch => ({
     dispatch(common.clearAll()),
   transferData: payload =>
     dispatch(resultListActions.movetoResultsPage(payload)),
+  transfertoViewingPanel: payload =>
+    dispatch(resultListActions.movetoViewingPanel(payload)),
 })
 
 class SearchResultsHolder extends React.Component {
@@ -47,13 +49,24 @@ class SearchResultsHolder extends React.Component {
     this.clearAll = () => {
       this.props.clearAll()
     }
+
+    this.moveResults = (payload) => {
+      this.props.transfertoViewingPanel(payload)
+    }
+  }
+
+  handleTransferResult(x) {
+    let _i = x === '0' ? 9 : (parseInt(x, 10)) - 1
+    let _results = this.props.data.results
+    if (_results[_i]) this.moveResults(_results[_i])
   }
 
   onKeyDown(keyName, e, handler) {
     e.preventDefault()
 
     switch (keyName){
-      case ('ctrl+x' || 'command+x'):
+      case ('ctrl+x'):
+      case ('command+x'):
         this.clearAll()
         break
       case ('a'):
@@ -61,6 +74,18 @@ class SearchResultsHolder extends React.Component {
         break
       case ('d'):
         if (this.props.data.next) this.nextPage()
+        break
+      case ('1'):
+      case ('2'):
+      case ('3'):
+      case ('4'):
+      case ('5'):
+      case ('6'):
+      case ('7'):
+      case ('8'):
+      case ('9'):
+      case ('0'):
+        if (this.props.data.results) this.handleTransferResult(keyName)
         break
       default:
         break
@@ -95,7 +120,17 @@ class SearchResultsHolder extends React.Component {
             ctrl+x,
             command+x,
             a,
-            d
+            d,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            0
           "
           onKeyDown={this.onKeyDown.bind(this)}
         >
