@@ -27,11 +27,15 @@ class SearchResult extends React.Component {
       searchType,
     } = this.props
 
+    let { index } = this.props
+    index = index === 9 ? 0 : index + 1
+
     if (data) {
       const title = searchType === 'film' ? `Episode ${helpers.toRoman(data.episode_id)}: ${data.title}` : data.name
 
       return (
         <div className="search-result">
+          <div className="result-hotkey">{index}</div>
           <button type="button" className="d-sm-none btn btn-sm btn-success" onClick={() => this.moveResults(data)}>{title}</button>
           <button type="button" className="d-none d-md-block btn btn-success" onClick={() => this.moveResults(data)}>{title}</button>
         </div>
