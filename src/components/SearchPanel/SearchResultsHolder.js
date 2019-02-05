@@ -138,7 +138,7 @@ class SearchResultsHolder extends React.Component {
             {results ? <h2 className="text-center section-header">Select a {searchType}:</h2> : null}
 
             {results ?
-              results.map(x => (<SearchResult key={x.url} data={x} />))
+              results.map((x, i) => (<SearchResult key={x.url} data={x} index={i} />))
               : <h2 className="text-center loading">Loading...</h2>}
 
             <div className="clearfix">
