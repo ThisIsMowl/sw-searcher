@@ -135,7 +135,7 @@ class SearchResultsHolder extends React.Component {
           onKeyDown={this.onKeyDown.bind(this)}
         >
           <div>
-            {results ? <h2 className="text-center section-header">Select a {searchType}:</h2> : null}
+            {results ? <h3 className="text-center section-header">Click result or use number keys to select {searchType}:</h3> : null}
 
             {results ?
               results.map((x, i) => (<SearchResult key={x.url} data={x} index={i} />))
