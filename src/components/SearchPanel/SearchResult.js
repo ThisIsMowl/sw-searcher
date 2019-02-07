@@ -35,9 +35,8 @@ class SearchResult extends React.Component {
 
       return (
         <div className="search-result">
-          <div className="result-hotkey">{index}</div>
-          <button type="button" className="d-sm-none btn btn-sm btn-success" onClick={() => this.moveResults(data)}>{title}</button>
-          <button type="button" className="d-none d-md-block btn btn-success" onClick={() => this.moveResults(data)}>{title}</button>
+          <button type="button" className="d-sm-none btn btn-sm btn-success" onClick={() => this.moveResults(data)}><span className="font-weight-bold">{index}</span>: {title}</button>
+          <button type="button" className="d-none d-md-block btn btn-success" onClick={() => this.moveResults(data)}><span className="font-weight-bold">{index}</span>: {title}</button>
         </div>
       )
     }
